@@ -1,0 +1,8 @@
+1) Expression parser
+    
+2) binary operation parser
+
+3) if else expression parser
+    define how they are ended
+    there can either be a block that starts/ends with begin/ended
+    or just one expression

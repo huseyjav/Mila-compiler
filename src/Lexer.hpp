@@ -1,19 +1,30 @@
 #ifndef PJPPROJECT_LEXER_HPP
 #define PJPPROJECT_LEXER_HPP
 
+#include <algorithm>
+#include <fstream>
 #include <iostream>
+#include <string>
 
 class Lexer {
 public:
-    Lexer() = default;
+    //Lexer() = default;
+    Lexer(std::ifstream& is): is(is) {}
     ~Lexer() = default;
 
     int gettok();
     const std::string& identifierStr() const { return this->m_IdentifierStr; }
     int numVal() { return this->m_NumVal; }
 private:
+    bool convertNumber(){
+        if(!std::all_of(m_IdentifierStr.begin(),m_IdentifierStr.end(),isdigit)) return false;
+        if(m_IdentifierStr.empty()) return false;
+        m_NumVal = std::stoi(m_IdentifierStr);
+        return true;
+    }
     std::string m_IdentifierStr;
     int m_NumVal;
+    std::ifstream& is;
 };
 
 
