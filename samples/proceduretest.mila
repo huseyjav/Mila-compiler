@@ -1,0 +1,13 @@
+program proc;
+
+procedure print(n : integer);
+begin
+    writeln(n);
+end;
+
+
+
+begin
+    print(5);
+end.
+

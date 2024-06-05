@@ -1,6 +1,8 @@
 #ifndef ASTH
 #define ASTH
 
+#include <llvm-16/llvm/IR/BasicBlock.h>
+#include <llvm-16/llvm/IR/Instructions.h>
 #include <llvm-16/llvm/IR/Type.h>
 #include <llvm-16/llvm/IR/Value.h>
 
@@ -18,7 +20,8 @@ enum binOps {
     MULTIPLY = '*',
     DIVIDE = -26,
     MODULO = -25,
-    LESSTHAN = '<' 
+    LESSTHAN = '<',
+    MORETHAN = '>'
 };
 
 
@@ -89,29 +92,34 @@ class functionDefNode : public ASTNode {
    public:
     std::string m_FuncName;
     std::vector<std::string> m_VarNames;
-
+    bool m_isProcedure = false;
     functionDefNode(ASTNode* parent, const std::string& funcName,
-                    const std::vector<std::string>& varNames);
-    //llvm::Value* codengen() override;
+                    const std::vector<std::string>& varNames, bool isProcedure=false);
+    llvm::Value* codegen() override;
 };
 
 class functionBodyNode : public ASTNode {
     std::shared_ptr<functionDefNode> m_Definition;
-    std::vector<std::shared_ptr<ASTNode>> m_Body;
-    std::map<std::string, Value*> m_VarTable;
-
+    std::shared_ptr<ASTNode> m_Body;
+    //  function arguments
+    std::map<std::string, Value*> m_VarTable; 
+    // dynamic variables
+    std::map<std::string, AllocaInst*> m_DynamicVars;
+    llvm::BasicBlock* m_ExitBlock=nullptr;
    public:
     functionBodyNode(ASTNode* parent, std::shared_ptr<functionDefNode>,
-            const std::vector<std::shared_ptr<ASTNode>>& body);
+            std::shared_ptr<ASTNode> body);
 
     functionBodyNode* getParentFunc() override;
     llvm::Value* codegen() override;
     Value* getValue(const std::string& name);
+    AllocaInst* getDynamicVar(const std::string& name);
+    llvm::BasicBlock* getExitBlock();
 };
 
 class program : public ASTNode {
    public:
-    std::vector<std::shared_ptr<functionBodyNode>> m_Funcs;
+    std::vector<std::shared_ptr<ASTNode>> m_Funcs;
     //llvm::Value* codengen() override;
 };
 
@@ -119,6 +127,19 @@ class returnNode : public ASTNode{
     std::shared_ptr<ASTNode> m_RetVal;
     public:
     returnNode(ASTNode*, std::shared_ptr<ASTNode>);
+    llvm::Value* codegen() override;
+};
+
+class codeBlockNode : public ASTNode{
+    std::vector<std::shared_ptr<ASTNode>> m_Block;
+
+public:
+    codeBlockNode(ASTNode* parent,const std::vector<std::shared_ptr<ASTNode>>& block);
+    llvm::Value* codegen() override;
+};
+
+class exitNode : public ASTNode{
+public:
     llvm::Value* codegen() override;
 };
 

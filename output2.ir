@@ -12,7 +12,6 @@ entry:
 
 3:                                                ; preds = %entry
   ret i32 %n
-  br label %10
 
 4:                                                ; preds = %entry
   %5 = sub i32 %n, 1
@@ -21,9 +20,8 @@ entry:
   %8 = call i32 @fibonacci(i32 %7)
   %9 = add i32 %6, %8
   ret i32 %9
-  br label %10
 
-10:                                               ; preds = %4, %3
+10:                                               ; No predecessors!
   ret i32 0
 }
 

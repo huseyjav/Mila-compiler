@@ -1,0 +1,11 @@
+program fibonacci;
+
+function add(n : integer; x : integer) : integer;
+begin
+    add := n + x;
+end;
+
+
+begin
+    writeln(add(5,10));
+end.

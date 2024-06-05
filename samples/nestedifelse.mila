@@ -1,0 +1,14 @@
+program nested;
+
+begin
+    if 1 > 2 then
+        if 1 < 2 then
+            begin
+            writeln(1)
+            end
+        else writeln(2)
+    else
+        if 1 > 2 then
+            writeln(3)
+        else writeln(4);
+end.

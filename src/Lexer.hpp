@@ -77,6 +77,7 @@ enum Token {
 
     // keywords for array
     tok_array =         -32
+
 };
 
 #endif //PJPPROJECT_LEXER_HPP

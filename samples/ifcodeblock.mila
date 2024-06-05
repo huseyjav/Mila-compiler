@@ -1,0 +1,18 @@
+program ifcodeblock;
+
+
+function some(a : integer; b: integer): integer;
+begin
+    if a < 5 then
+        begin
+        some:=b;
+        end;
+    else
+        some:=a;
+end;
+
+
+
+begin
+    writeln(some(4,10));
+end.

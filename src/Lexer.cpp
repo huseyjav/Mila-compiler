@@ -12,11 +12,11 @@
 int Lexer::gettok() {
     // char curCh;
     while (isspace(is.peek()) && !is.eof()) is.get();
-    if(is.eof()) return Token::tok_eof;
+    if (is.eof()) return Token::tok_eof;
     m_IdentifierStr.clear();
     while (isalnum(is.peek())) m_IdentifierStr += is.get();
-    //if(m_IdentifierStr.empty()) throw std::invalid_argument("");
-    //std::cout << m_IdentifierStr << std::endl;
+    // if(m_IdentifierStr.empty()) throw std::invalid_argument("");
+    // std::cout << m_IdentifierStr << std::endl;
     if (m_IdentifierStr == "begin") return Token::tok_begin;
     if (m_IdentifierStr == "end") return Token::tok_end;
     if (m_IdentifierStr == "const") return Token::tok_const;
@@ -51,36 +51,36 @@ int Lexer::gettok() {
 
     if (is.peek() == '!') {
         m_IdentifierStr += is.get();
-        if(is.peek()!='=') goto single_char;
+        if (is.peek() != '=') goto single_char;
         is.get();
         return Token::tok_notequal;
     }
     if (is.peek() == '<') {
         m_IdentifierStr += is.get();
-        if(is.peek()!='=') goto single_char;
+        if (is.peek() != '=') goto single_char;
         m_IdentifierStr += is.get();
         return Token::tok_lessequal;
     }
     if (is.peek() == '>') {
         m_IdentifierStr += is.get();
-        if(is.peek()!='=') goto single_char;
+        if (is.peek() != '=') goto single_char;
         m_IdentifierStr += is.get();
         return Token::tok_greaterequal;
     }
     if (is.peek() == ':') {
         m_IdentifierStr += is.get();
-        if(is.peek()!='=') goto single_char;
+        if (is.peek() != '=') goto single_char;
         m_IdentifierStr += is.get();
         return Token::tok_assign;
     }
     if (is.peek() == '|') {
         m_IdentifierStr += is.get();
-        if(is.peek()!='|') goto single_char;
+        if (is.peek() != '|') goto single_char;
         m_IdentifierStr += is.get();
         return Token::tok_or;
     }
-    if(is.eof()) return Token::tok_eof;
-    m_IdentifierStr+=is.get();
+    if (is.eof()) return Token::tok_eof;
+    m_IdentifierStr += is.get();
 single_char:
     return m_IdentifierStr.back();
 }

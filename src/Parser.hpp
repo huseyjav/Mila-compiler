@@ -39,6 +39,7 @@ public:
 
 private:
     int getNextToken();
+    void consume(int consumeTok);
 
     Lexer m_Lexer;                   // lexer is used to read tokens
     int CurTok;                      // to keep the current tokens
@@ -48,7 +49,7 @@ private:
     llvm::Module MilaModule;         // llvm module
 
     std::shared_ptr<functionDefNode> parseFunctionDefinition();
-    std::shared_ptr<functionBodyNode> parseFunction();
+    std::shared_ptr<ASTNode> parseFunction();
     std::shared_ptr<functionBodyNode> parseMainFunction();
     std::shared_ptr<ASTNode> parseExpression();
     std::shared_ptr<ASTNode> parseIfElse();
@@ -56,7 +57,8 @@ private:
     std::shared_ptr<ASTNode> parseBinOp();
     std::shared_ptr<ASTNode> parseNumber();
     std::shared_ptr<ASTNode> parseIdentifier();
-    std::vector<std::shared_ptr<ASTNode>> parseCodeBlock();
+    std::shared_ptr<ASTNode> parseCodeBlock();
+    std::shared_ptr<ASTNode> parseExit();
 };
 
 
