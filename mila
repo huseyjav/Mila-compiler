@@ -1,4 +1,3 @@
-# usage: ./mila {input source file}
 #!/bin/bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 
@@ -73,8 +72,9 @@ OutputFileName=$(realpath "$outFile");
 OutputFileBaseName="${OutputFileName%%.*}"
 
 rm -f "$OutputFileBaseName.ir"
-echo "DEBUG" "$OutputFileBaseName.ir" "$InputFileName" "${DIR}/build/mila"
-"${DIR}/build/mila" "$InputFileName" > "$OutputFileBaseName.ir"
+#echo "DEBUG" "$OutputFileBaseName.ir" "$InputFileName" "${DIR}/build/mila"
+> "$OutputFileBaseName.ir" < "$InputFileName" "${DIR}/build/mila" &&
+#> "$OutputFileBaseName.ir"  "${DIR}/build/mila" "$InputFileName" &&
 rm -f "$OutputFileBaseName.s"
 llc "$OutputFileBaseName.ir" -o "$OutputFileBaseName.s" -relocation-model=pic &&
 clang "$OutputFileBaseName.s" "${DIR}/src/fce.c" -o "$OutputFileName"

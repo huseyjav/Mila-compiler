@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/javidan/pjp-semwork/src/AST.cpp" "CMakeFiles/mila.dir/src/AST.cpp.o" "gcc" "CMakeFiles/mila.dir/src/AST.cpp.o.d"
   "/home/javidan/pjp-semwork/src/Lexer.cpp" "CMakeFiles/mila.dir/src/Lexer.cpp.o" "gcc" "CMakeFiles/mila.dir/src/Lexer.cpp.o.d"
   "/home/javidan/pjp-semwork/src/Parser.cpp" "CMakeFiles/mila.dir/src/Parser.cpp.o" "gcc" "CMakeFiles/mila.dir/src/Parser.cpp.o.d"
   "/home/javidan/pjp-semwork/src/main.cpp" "CMakeFiles/mila.dir/src/main.cpp.o" "gcc" "CMakeFiles/mila.dir/src/main.cpp.o.d"

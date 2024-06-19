@@ -16,6 +16,9 @@
 #include <fstream>
 #include <memory>
 #include <ostream>
+#include <utility>
+#include <string>
+#include <vector>
 
 #include "AST.h"
 #include "Lexer.hpp"
@@ -25,11 +28,17 @@ struct llvmClasses{
     llvm::IRBuilder<>* MilaBuilder;   // llvm builder
     llvm::Module* MilaModule;         // llvm module
 };
+struct arrayDeclaration{
+    std::string name;
+    int lowerIdx;
+    int upperIdx;
+};
+struct declaredVars;
 extern llvmClasses llvmC;
 class Parser {
 public:
     Parser();
-    Parser(std::ifstream& os);
+    Parser(std::istream& os);
     ~Parser() = default;
     std::string curFunc;
     
@@ -55,10 +64,21 @@ private:
     std::shared_ptr<ASTNode> parseIfElse();
     std::shared_ptr<ASTNode> parsePrimary();
     std::shared_ptr<ASTNode> parseBinOp();
+    std::shared_ptr<ASTNode> parseBinOpLvl0();
+    std::shared_ptr<ASTNode> parseBinOpLvl1();
+    std::shared_ptr<ASTNode> parseBinOpLvl2();
+    std::shared_ptr<ASTNode> parseBinOpLvl3();
+    std::shared_ptr<ASTNode> parseBinOpLvl4();
+    std::shared_ptr<ASTNode> parseBinOpLvl5();
+    std::shared_ptr<ASTNode> parseBinOpLvl6();
     std::shared_ptr<ASTNode> parseNumber();
     std::shared_ptr<ASTNode> parseIdentifier();
     std::shared_ptr<ASTNode> parseCodeBlock();
     std::shared_ptr<ASTNode> parseExit();
+    std::shared_ptr<ASTNode> parseWhile();
+    std::shared_ptr<ASTNode> parseFor();
+    declaredVars parseVariables();
+    std::set<std::string> parseIdentifiers();
 };
 
 

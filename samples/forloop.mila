@@ -1,0 +1,9 @@
+program forloop;
+
+var I, B : integer;
+begin
+    for I := 10 downto 0 do 
+    begin
+        writeln(I);
+    end;
+end.

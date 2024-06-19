@@ -23,13 +23,9 @@ CMAKE_ADDR2LINE:FILEPATH=/usr/bin/addr2line
 //Path to a program.
 CMAKE_AR:FILEPATH=/usr/bin/ar
 
-//For backwards compatibility, what version of CMake commands and
-// syntax should this version of CMake try to support.
-CMAKE_BACKWARDS_COMPATIBILITY:STRING=2.4
-
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Debug
+CMAKE_BUILD_TYPE:STRING=
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -250,9 +246,6 @@ CURL_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libcurl.so
 //Maximum time allowed before CTest will kill the test.
 DART_TESTING_TIMEOUT:STRING=1500
 
-//Single output directory for building all executables.
-EXECUTABLE_OUTPUT_PATH:PATH=
-
 //Path to a file.
 FFI_INCLUDE_DIRS:PATH=/usr/include/x86_64-linux-gnu
 
@@ -261,9 +254,6 @@ FFI_LIBRARIES:FILEPATH=/usr/lib/x86_64-linux-gnu/libffi.so
 
 //Path to a program.
 GITCOMMAND:FILEPATH=/usr/bin/git
-
-//Single output directory for building all libraries.
-LIBRARY_OUTPUT_PATH:PATH=
 
 //Path to a file.
 LIBXML2_INCLUDE_DIR:PATH=/usr/include/libxml2

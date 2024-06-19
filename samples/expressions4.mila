@@ -1,0 +1,7 @@
+program expressions;
+
+begin
+    writeln(5+2+3*10*(1+1));
+    writeln(5+5*5+5*5);
+    writeln(-10);
+end.

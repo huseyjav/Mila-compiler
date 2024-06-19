@@ -51,9 +51,13 @@ set(OLD_GLOB
   "/home/javidan/pjp-semwork/samples/factorization.mila"
   "/home/javidan/pjp-semwork/samples/fibonacci.mila"
   "/home/javidan/pjp-semwork/samples/gcd.mila"
+  "/home/javidan/pjp-semwork/samples/ifcodeblock.mila"
   "/home/javidan/pjp-semwork/samples/indirectrecursion.mila"
   "/home/javidan/pjp-semwork/samples/inputOutput.mila"
   "/home/javidan/pjp-semwork/samples/isprime.mila"
+  "/home/javidan/pjp-semwork/samples/multarg.mila"
+  "/home/javidan/pjp-semwork/samples/nestedifelse.mila"
+  "/home/javidan/pjp-semwork/samples/proceduretest.mila"
   "/home/javidan/pjp-semwork/samples/sortBubble.mila"
   )
 if(NOT "${NEW_GLOB}" STREQUAL "${OLD_GLOB}")

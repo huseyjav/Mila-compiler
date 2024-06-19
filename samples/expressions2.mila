@@ -1,4 +1,4 @@
-program expressions2;
+program expressions;
 
 var
     x: integer;

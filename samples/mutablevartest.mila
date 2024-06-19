@@ -1,0 +1,10 @@
+program mutvar;
+
+var
+    n, a: integer;
+begin
+    n:=5;
+    a := n + 1;
+    writeln(n);
+    writeln(a);
+end.

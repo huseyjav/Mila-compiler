@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/mila.dir/src/AST.cpp.o"
+  "CMakeFiles/mila.dir/src/AST.cpp.o.d"
   "CMakeFiles/mila.dir/src/Lexer.cpp.o"
   "CMakeFiles/mila.dir/src/Lexer.cpp.o.d"
   "CMakeFiles/mila.dir/src/Parser.cpp.o"

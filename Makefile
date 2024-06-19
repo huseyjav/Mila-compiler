@@ -556,6 +556,30 @@ ContinuousSubmit/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ContinuousSubmit.dir/build.make CMakeFiles/ContinuousSubmit.dir/build
 .PHONY : ContinuousSubmit/fast
 
+src/AST.o: src/AST.cpp.o
+.PHONY : src/AST.o
+
+# target to build an object file
+src/AST.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mila.dir/build.make CMakeFiles/mila.dir/src/AST.cpp.o
+.PHONY : src/AST.cpp.o
+
+src/AST.i: src/AST.cpp.i
+.PHONY : src/AST.i
+
+# target to preprocess a source file
+src/AST.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mila.dir/build.make CMakeFiles/mila.dir/src/AST.cpp.i
+.PHONY : src/AST.cpp.i
+
+src/AST.s: src/AST.cpp.s
+.PHONY : src/AST.s
+
+# target to generate assembly for a file
+src/AST.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/mila.dir/build.make CMakeFiles/mila.dir/src/AST.cpp.s
+.PHONY : src/AST.cpp.s
+
 src/Lexer.o: src/Lexer.cpp.o
 .PHONY : src/Lexer.o
 
@@ -670,6 +694,9 @@ help:
 	@echo "... intrinsics_gen"
 	@echo "... omp_gen"
 	@echo "... mila"
+	@echo "... src/AST.o"
+	@echo "... src/AST.i"
+	@echo "... src/AST.s"
 	@echo "... src/Lexer.o"
 	@echo "... src/Lexer.i"
 	@echo "... src/Lexer.s"

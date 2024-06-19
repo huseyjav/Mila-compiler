@@ -1,0 +1,14 @@
+1:compiler:arrayMax
+2:compiler:arrayTest
+9:compiler:factorization
+11:compiler:gcd
+12:compiler:ifcodeblock
+19:compiler:sortBubble
+20:run:arrayMax.run1.out
+21:run:arrayTest.run1.out
+22:run:arrayTest.run2.out
+23:run:arrayTest.run3.out
+24:run:arrayTest.run4.out
+37:run:factorization.run1.out
+39:run:gcd.run1.out
+45:run:sortBubble.run1.out

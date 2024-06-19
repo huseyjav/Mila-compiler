@@ -20,9 +20,26 @@
 
 9) fill in exit block (DONE)
 
-remake if else (it is a mess right now) (DONE)
-function after body code gen, if no terminating line has been found then insert a branching to exit
+10) remake if else (it is a mess right now) (DONE)
+    function after body code gen, if no terminating line has been found then insert a branching to exit
 
-implement procedures: (DONE)
+11) implement procedures: (DONE)
     add new variable to definition node, based on that pass get type void or int to gettype
     dont make a variable at the start when it is void
+
+12) implement current line to lexer for error output
+
+
+
+
+MAIN GOALS: 5,6,7
+
+
+
+
+
+move identifers to a bin op node with no rhs
+add new method to bin op:
+    GEP: get pointer to the element for CreateStore
+default codegen:
+    CreateLoad

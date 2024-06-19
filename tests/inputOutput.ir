@@ -1,0 +1,23 @@
+; ModuleID = 'mila'
+source_filename = "mila"
+
+declare i32 @writeln(i32)
+
+declare i32 @write(i32)
+
+declare i32 @readln(ptr)
+
+define i32 @main() {
+entry:
+  %0 = alloca i32, align 4
+  store i32 0, ptr %0, align 4
+  %1 = alloca i32, align 4
+  %2 = call i32 @readln(ptr %1)
+  %3 = load i32, ptr %1, align 4
+  %4 = call i32 @writeln(i32 %3)
+  br label %5
+
+5:                                                ; preds = %entry
+  %6 = load i32, ptr %0, align 4
+  ret i32 %6
+}

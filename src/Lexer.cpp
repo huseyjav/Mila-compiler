@@ -14,7 +14,7 @@ int Lexer::gettok() {
     while (isspace(is.peek()) && !is.eof()) is.get();
     if (is.eof()) return Token::tok_eof;
     m_IdentifierStr.clear();
-    while (isalnum(is.peek())) m_IdentifierStr += is.get();
+    while (isalnum(is.peek()) || is.peek()=='$' || is.peek()=='&') m_IdentifierStr += is.get();
     // if(m_IdentifierStr.empty()) throw std::invalid_argument("");
     // std::cout << m_IdentifierStr << std::endl;
     if (m_IdentifierStr == "begin") return Token::tok_begin;
@@ -44,6 +44,8 @@ int Lexer::gettok() {
     if (m_IdentifierStr == "not") return Token::tok_not;
     if (m_IdentifierStr == "and") return Token::tok_and;
     if (m_IdentifierStr == "xor") return Token::tok_xor;
+    if (m_IdentifierStr == "or") return Token::tok_or;
+    if (m_IdentifierStr == "break") return Token::tok_break;
 
     if (convertNumber()) return Token::tok_number;
 

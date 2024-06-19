@@ -1,1 +1,1 @@
-/usr/bin/c++ -Wall -Wextra -pedantic  -g CMakeFiles/mila.dir/src/main.cpp.o CMakeFiles/mila.dir/src/Lexer.cpp.o CMakeFiles/mila.dir/src/Parser.cpp.o -o mila  -Wl,-rpath,/usr/lib/llvm-16/lib /usr/lib/llvm-16/lib/libLLVM-16.so.1
+/usr/bin/c++ -Wall -Wextra -pedantic -g  CMakeFiles/mila.dir/src/main.cpp.o CMakeFiles/mila.dir/src/Lexer.cpp.o CMakeFiles/mila.dir/src/Parser.cpp.o CMakeFiles/mila.dir/src/AST.cpp.o -o mila  -Wl,-rpath,/usr/lib/llvm-16/lib /usr/lib/llvm-16/lib/libLLVM-16.so.1

@@ -1,0 +1,45 @@
+; ModuleID = 'mila'
+source_filename = "mila"
+
+declare i32 @writeln(i32)
+
+declare i32 @write(i32)
+
+declare i32 @readln(ptr)
+
+define i32 @main() {
+entry:
+  %0 = alloca i32, align 4
+  store i32 0, ptr %0, align 4
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  store i32 1, ptr %1, align 4
+  %3 = call i32 @readln(ptr %2)
+  br label %4
+
+4:                                                ; preds = %9, %entry
+  %5 = load i32, ptr %2, align 4
+  %6 = icmp sge i32 %5, 2
+  %7 = zext i1 %6 to i32
+  %8 = icmp ne i32 %7, 0
+  br i1 %8, label %9, label %15
+
+9:                                                ; preds = %4
+  %10 = load i32, ptr %1, align 4
+  %11 = load i32, ptr %2, align 4
+  %12 = mul i32 %10, %11
+  store i32 %12, ptr %1, align 4
+  %13 = load i32, ptr %2, align 4
+  %14 = sub i32 %13, 1
+  store i32 %14, ptr %2, align 4
+  br label %4
+
+15:                                               ; preds = %4
+  %16 = load i32, ptr %1, align 4
+  %17 = call i32 @writeln(i32 %16)
+  br label %18
+
+18:                                               ; preds = %15
+  %19 = load i32, ptr %0, align 4
+  ret i32 %19
+}

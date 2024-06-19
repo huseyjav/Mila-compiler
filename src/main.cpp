@@ -6,12 +6,12 @@
 using namespace std;
 int main (int argc, char *argv[])
 {
-    ifstream is(argv[1]);
+    /*ifstream is(argv[1]);
     if(!is){
+        cout << argv[1] << endl;
         cout<< " failed " << endl;
-        return 1;
-    }
-    Parser parser(is);
+    }*/
+    Parser parser(cin);
 
     if (!parser.Parse()) {
         return 1;

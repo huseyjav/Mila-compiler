@@ -1,20 +1,26 @@
 [
 {
   "directory": "/home/javidan/pjp-semwork",
-  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic  -g -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/main.cpp.o -c /home/javidan/pjp-semwork/src/main.cpp",
+  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic -g  -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/main.cpp.o -c /home/javidan/pjp-semwork/src/main.cpp",
   "file": "/home/javidan/pjp-semwork/src/main.cpp",
   "output": "CMakeFiles/mila.dir/src/main.cpp.o"
 },
 {
   "directory": "/home/javidan/pjp-semwork",
-  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic  -g -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/Lexer.cpp.o -c /home/javidan/pjp-semwork/src/Lexer.cpp",
+  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic -g  -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/Lexer.cpp.o -c /home/javidan/pjp-semwork/src/Lexer.cpp",
   "file": "/home/javidan/pjp-semwork/src/Lexer.cpp",
   "output": "CMakeFiles/mila.dir/src/Lexer.cpp.o"
 },
 {
   "directory": "/home/javidan/pjp-semwork",
-  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic  -g -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/Parser.cpp.o -c /home/javidan/pjp-semwork/src/Parser.cpp",
+  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic -g  -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/Parser.cpp.o -c /home/javidan/pjp-semwork/src/Parser.cpp",
   "file": "/home/javidan/pjp-semwork/src/Parser.cpp",
   "output": "CMakeFiles/mila.dir/src/Parser.cpp.o"
+},
+{
+  "directory": "/home/javidan/pjp-semwork",
+  "command": "/usr/bin/c++  -I/home/javidan/pjp-semwork/src -I/usr/lib/llvm-16/include -Wall -Wextra -pedantic -g  -std=gnu++17 -D_GNU_SOURCE -D__STDC_CONSTANT_MACROS -D__STDC_FORMAT_MACROS -D__STDC_LIMIT_MACROS -o CMakeFiles/mila.dir/src/AST.cpp.o -c /home/javidan/pjp-semwork/src/AST.cpp",
+  "file": "/home/javidan/pjp-semwork/src/AST.cpp",
+  "output": "CMakeFiles/mila.dir/src/AST.cpp.o"
 }
 ]
