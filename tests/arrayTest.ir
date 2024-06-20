@@ -1,0 +1,110 @@
+; ModuleID = 'mila'
+source_filename = "mila"
+
+declare i32 @writeln(i32)
+
+declare i32 @write(i32)
+
+declare i32 @readln(ptr)
+
+define i32 @main() {
+entry:
+  %0 = alloca i32, align 4
+  store i32 0, ptr %0, align 4
+  %1 = alloca i32, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = alloca i32, align 4
+  %5 = alloca [41 x i32], align 4
+  store i32 -20, ptr %1, align 4
+  br label %6
+
+6:                                                ; preds = %9, %entry
+  %7 = load i32, ptr %1, align 4
+  %8 = icmp sle i32 %7, 20
+  br i1 %8, label %9, label %19
+
+9:                                                ; preds = %6
+  %10 = load i32, ptr %1, align 4
+  %11 = sub i32 %10, -20
+  %12 = getelementptr i32, ptr %5, i32 %11
+  %13 = load i32, ptr %12, align 4
+  %14 = load i32, ptr %1, align 4
+  %15 = sub i32 %14, -20
+  %16 = getelementptr i32, ptr %5, i32 %15
+  store i32 0, ptr %16, align 4
+  %17 = load i32, ptr %1, align 4
+  %18 = add i32 %17, 1
+  store i32 %18, ptr %1, align 4
+  br label %6
+
+19:                                               ; preds = %6
+  %20 = call i32 @readln(ptr %2)
+  store i32 0, ptr %1, align 4
+  br label %21
+
+21:                                               ; preds = %26, %19
+  %22 = load i32, ptr %1, align 4
+  %23 = load i32, ptr %2, align 4
+  %24 = sub i32 %23, 1
+  %25 = icmp sle i32 %22, %24
+  br i1 %25, label %26, label %42
+
+26:                                               ; preds = %21
+  %27 = call i32 @readln(ptr %4)
+  %28 = load i32, ptr %4, align 4
+  %29 = sub i32 %28, -20
+  %30 = getelementptr i32, ptr %5, i32 %29
+  %31 = load i32, ptr %30, align 4
+  %32 = load i32, ptr %4, align 4
+  %33 = sub i32 %32, -20
+  %34 = getelementptr i32, ptr %5, i32 %33
+  %35 = load i32, ptr %34, align 4
+  %36 = add i32 %35, 1
+  %37 = load i32, ptr %4, align 4
+  %38 = sub i32 %37, -20
+  %39 = getelementptr i32, ptr %5, i32 %38
+  store i32 %36, ptr %39, align 4
+  %40 = load i32, ptr %1, align 4
+  %41 = add i32 %40, 1
+  store i32 %41, ptr %1, align 4
+  br label %21
+
+42:                                               ; preds = %21
+  %43 = load i32, ptr %3, align 4
+  store i32 0, ptr %3, align 4
+  store i32 20, ptr %1, align 4
+  br label %44
+
+44:                                               ; preds = %47, %42
+  %45 = load i32, ptr %1, align 4
+  %46 = icmp sge i32 %45, -20
+  br i1 %46, label %47, label %59
+
+47:                                               ; preds = %44
+  %48 = load i32, ptr %3, align 4
+  %49 = load i32, ptr %3, align 4
+  %50 = load i32, ptr %1, align 4
+  %51 = load i32, ptr %1, align 4
+  %52 = sub i32 %51, -20
+  %53 = getelementptr i32, ptr %5, i32 %52
+  %54 = load i32, ptr %53, align 4
+  %55 = mul i32 %50, %54
+  %56 = add i32 %49, %55
+  store i32 %56, ptr %3, align 4
+  %57 = load i32, ptr %1, align 4
+  %58 = sub i32 %57, 1
+  store i32 %58, ptr %1, align 4
+  br label %44
+
+59:                                               ; preds = %44
+  %60 = load i32, ptr %3, align 4
+  %61 = load i32, ptr %2, align 4
+  %62 = sdiv i32 %60, %61
+  %63 = call i32 @writeln(i32 %62)
+  br label %64
+
+64:                                               ; preds = %59
+  %65 = load i32, ptr %0, align 4
+  ret i32 %65
+}

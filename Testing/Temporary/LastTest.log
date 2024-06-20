@@ -1,23 +1,17 @@
-Start testing: Jun 20 01:27 CEST
+Start testing: Jun 20 19:37 CEST
 ----------------------------------------------------------
 1/45 Testing: compiler:arrayMax
 1/45 Test: compiler:arrayMax
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/arrayMax.mila" "-o" "/home/javidan/pjp-semwork/tests/arrayMax"
 Directory: /home/javidan/pjp-semwork
-"compiler:arrayMax" start time: Jun 20 01:27 CEST
+"compiler:arrayMax" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  expected: -17 got: -32
-/home/javidan/pjp-semwork/mila: line 78: 46960 Aborted                 "${DIR}/build/mila" > "$OutputFileBaseName.ir" < "$InputFileName"
-/usr/bin/ld: /lib/x86_64-linux-gnu/Scrt1.o: in function `_start':
-(.text+0x17): undefined reference to `main'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
-Test Failed.
-"compiler:arrayMax" end time: Jun 20 01:27 CEST
+Test Passed.
+"compiler:arrayMax" end time: Jun 20 19:37 CEST
 "compiler:arrayMax" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -25,20 +19,14 @@ Test Failed.
 2/45 Test: compiler:arrayTest
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/arrayTest.mila" "-o" "/home/javidan/pjp-semwork/tests/arrayTest"
 Directory: /home/javidan/pjp-semwork
-"compiler:arrayTest" start time: Jun 20 01:27 CEST
+"compiler:arrayTest" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  expected: -17 got: -32
-/home/javidan/pjp-semwork/mila: line 78: 46974 Aborted                 "${DIR}/build/mila" > "$OutputFileBaseName.ir" < "$InputFileName"
-/usr/bin/ld: /lib/x86_64-linux-gnu/Scrt1.o: in function `_start':
-(.text+0x17): undefined reference to `main'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
-Test Failed.
-"compiler:arrayTest" end time: Jun 20 01:27 CEST
+Test Passed.
+"compiler:arrayTest" end time: Jun 20 19:37 CEST
 "compiler:arrayTest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -46,14 +34,14 @@ Test Failed.
 3/45 Test: compiler:consts
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/consts.mila" "-o" "/home/javidan/pjp-semwork/tests/consts"
 Directory: /home/javidan/pjp-semwork
-"compiler:consts" start time: Jun 20 01:27 CEST
+"compiler:consts" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:consts" end time: Jun 20 01:27 CEST
+"compiler:consts" end time: Jun 20 19:37 CEST
 "compiler:consts" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -61,14 +49,14 @@ Test Passed.
 4/45 Test: compiler:expressions
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/expressions.mila" "-o" "/home/javidan/pjp-semwork/tests/expressions"
 Directory: /home/javidan/pjp-semwork
-"compiler:expressions" start time: Jun 20 01:27 CEST
+"compiler:expressions" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:expressions" end time: Jun 20 01:27 CEST
+"compiler:expressions" end time: Jun 20 19:37 CEST
 "compiler:expressions" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -76,14 +64,14 @@ Test Passed.
 5/45 Test: compiler:expressions2
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/expressions2.mila" "-o" "/home/javidan/pjp-semwork/tests/expressions2"
 Directory: /home/javidan/pjp-semwork
-"compiler:expressions2" start time: Jun 20 01:27 CEST
+"compiler:expressions2" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:expressions2" end time: Jun 20 01:27 CEST
+"compiler:expressions2" end time: Jun 20 19:37 CEST
 "compiler:expressions2" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -91,14 +79,14 @@ Test Passed.
 6/45 Test: compiler:factorial
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/factorial.mila" "-o" "/home/javidan/pjp-semwork/tests/factorial"
 Directory: /home/javidan/pjp-semwork
-"compiler:factorial" start time: Jun 20 01:27 CEST
+"compiler:factorial" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:factorial" end time: Jun 20 01:27 CEST
+"compiler:factorial" end time: Jun 20 19:37 CEST
 "compiler:factorial" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -106,14 +94,14 @@ Test Passed.
 7/45 Test: compiler:factorialCycle
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/factorialCycle.mila" "-o" "/home/javidan/pjp-semwork/tests/factorialCycle"
 Directory: /home/javidan/pjp-semwork
-"compiler:factorialCycle" start time: Jun 20 01:27 CEST
+"compiler:factorialCycle" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:factorialCycle" end time: Jun 20 01:27 CEST
+"compiler:factorialCycle" end time: Jun 20 19:37 CEST
 "compiler:factorialCycle" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -121,14 +109,14 @@ Test Passed.
 8/45 Test: compiler:factorialRec
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/factorialRec.mila" "-o" "/home/javidan/pjp-semwork/tests/factorialRec"
 Directory: /home/javidan/pjp-semwork
-"compiler:factorialRec" start time: Jun 20 01:27 CEST
+"compiler:factorialRec" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:factorialRec" end time: Jun 20 01:27 CEST
+"compiler:factorialRec" end time: Jun 20 19:37 CEST
 "compiler:factorialRec" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -136,20 +124,14 @@ Test Passed.
 9/45 Test: compiler:factorization
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/factorization.mila" "-o" "/home/javidan/pjp-semwork/tests/factorization"
 Directory: /home/javidan/pjp-semwork
-"compiler:factorization" start time: Jun 20 01:27 CEST
+"compiler:factorization" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  expected: 44 got: 39
-/home/javidan/pjp-semwork/mila: line 78: 47078 Aborted                 "${DIR}/build/mila" > "$OutputFileBaseName.ir" < "$InputFileName"
-/usr/bin/ld: /lib/x86_64-linux-gnu/Scrt1.o: in function `_start':
-(.text+0x17): undefined reference to `main'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
-Test Failed.
-"compiler:factorization" end time: Jun 20 01:27 CEST
+Test Passed.
+"compiler:factorization" end time: Jun 20 19:37 CEST
 "compiler:factorization" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -157,14 +139,14 @@ Test Failed.
 10/45 Test: compiler:fibonacci
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/fibonacci.mila" "-o" "/home/javidan/pjp-semwork/tests/fibonacci"
 Directory: /home/javidan/pjp-semwork
-"compiler:fibonacci" start time: Jun 20 01:27 CEST
+"compiler:fibonacci" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:fibonacci" end time: Jun 20 01:27 CEST
+"compiler:fibonacci" end time: Jun 20 19:37 CEST
 "compiler:fibonacci" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -172,20 +154,14 @@ Test Passed.
 11/45 Test: compiler:gcd
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/gcd.mila" "-o" "/home/javidan/pjp-semwork/tests/gcd"
 Directory: /home/javidan/pjp-semwork
-"compiler:gcd" start time: Jun 20 01:27 CEST
+"compiler:gcd" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  expected: 40 got: 95
-/home/javidan/pjp-semwork/mila: line 78: 47107 Aborted                 "${DIR}/build/mila" > "$OutputFileBaseName.ir" < "$InputFileName"
-/usr/bin/ld: /lib/x86_64-linux-gnu/Scrt1.o: in function `_start':
-(.text+0x17): undefined reference to `main'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
-Test Failed.
-"compiler:gcd" end time: Jun 20 01:27 CEST
+Test Passed.
+"compiler:gcd" end time: Jun 20 19:37 CEST
 "compiler:gcd" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -193,7 +169,7 @@ Test Failed.
 12/45 Test: compiler:ifcodeblock
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/ifcodeblock.mila" "-o" "/home/javidan/pjp-semwork/tests/ifcodeblock"
 Directory: /home/javidan/pjp-semwork
-"compiler:ifcodeblock" start time: Jun 20 01:27 CEST
+"compiler:ifcodeblock" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 /home/javidan/pjp-semwork/mila: line 76: /home/javidan/pjp-semwork/samples/ifcodeblock.mila: No such file or directory
@@ -204,7 +180,7 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 Test time =   0.09 sec
 ----------------------------------------------------------
 Test Failed.
-"compiler:ifcodeblock" end time: Jun 20 01:27 CEST
+"compiler:ifcodeblock" end time: Jun 20 19:37 CEST
 "compiler:ifcodeblock" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -212,14 +188,14 @@ Test Failed.
 13/45 Test: compiler:indirectrecursion
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/indirectrecursion.mila" "-o" "/home/javidan/pjp-semwork/tests/indirectrecursion"
 Directory: /home/javidan/pjp-semwork
-"compiler:indirectrecursion" start time: Jun 20 01:27 CEST
+"compiler:indirectrecursion" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:indirectrecursion" end time: Jun 20 01:27 CEST
+"compiler:indirectrecursion" end time: Jun 20 19:37 CEST
 "compiler:indirectrecursion" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -227,14 +203,14 @@ Test Passed.
 14/45 Test: compiler:inputOutput
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/inputOutput.mila" "-o" "/home/javidan/pjp-semwork/tests/inputOutput"
 Directory: /home/javidan/pjp-semwork
-"compiler:inputOutput" start time: Jun 20 01:27 CEST
+"compiler:inputOutput" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:inputOutput" end time: Jun 20 01:27 CEST
+"compiler:inputOutput" end time: Jun 20 19:37 CEST
 "compiler:inputOutput" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -242,14 +218,14 @@ Test Passed.
 15/45 Test: compiler:isprime
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/isprime.mila" "-o" "/home/javidan/pjp-semwork/tests/isprime"
 Directory: /home/javidan/pjp-semwork
-"compiler:isprime" start time: Jun 20 01:27 CEST
+"compiler:isprime" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:isprime" end time: Jun 20 01:27 CEST
+"compiler:isprime" end time: Jun 20 19:37 CEST
 "compiler:isprime" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -257,14 +233,14 @@ Test Passed.
 16/45 Test: compiler:multarg
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/multarg.mila" "-o" "/home/javidan/pjp-semwork/tests/multarg"
 Directory: /home/javidan/pjp-semwork
-"compiler:multarg" start time: Jun 20 01:27 CEST
+"compiler:multarg" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:multarg" end time: Jun 20 01:27 CEST
+"compiler:multarg" end time: Jun 20 19:37 CEST
 "compiler:multarg" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -272,14 +248,14 @@ Test Passed.
 17/45 Test: compiler:nestedifelse
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/nestedifelse.mila" "-o" "/home/javidan/pjp-semwork/tests/nestedifelse"
 Directory: /home/javidan/pjp-semwork
-"compiler:nestedifelse" start time: Jun 20 01:27 CEST
+"compiler:nestedifelse" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:nestedifelse" end time: Jun 20 01:27 CEST
+"compiler:nestedifelse" end time: Jun 20 19:37 CEST
 "compiler:nestedifelse" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -287,14 +263,14 @@ Test Passed.
 18/45 Test: compiler:proceduretest
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/proceduretest.mila" "-o" "/home/javidan/pjp-semwork/tests/proceduretest"
 Directory: /home/javidan/pjp-semwork
-"compiler:proceduretest" start time: Jun 20 01:27 CEST
+"compiler:proceduretest" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
 Test Passed.
-"compiler:proceduretest" end time: Jun 20 01:27 CEST
+"compiler:proceduretest" end time: Jun 20 19:37 CEST
 "compiler:proceduretest" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -302,100 +278,89 @@ Test Passed.
 19/45 Test: compiler:sortBubble
 Command: "/home/javidan/pjp-semwork/mila" "/home/javidan/pjp-semwork/samples/sortBubble.mila" "-o" "/home/javidan/pjp-semwork/tests/sortBubble"
 Directory: /home/javidan/pjp-semwork
-"compiler:sortBubble" start time: Jun 20 01:27 CEST
+"compiler:sortBubble" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
-terminate called after throwing an instance of 'std::invalid_argument'
-  what():  expected: -17 got: -32
-/home/javidan/pjp-semwork/mila: line 78: 47225 Aborted                 "${DIR}/build/mila" > "$OutputFileBaseName.ir" < "$InputFileName"
-/usr/bin/ld: /lib/x86_64-linux-gnu/Scrt1.o: in function `_start':
-(.text+0x17): undefined reference to `main'
-clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <end of output>
 Test time =   0.11 sec
 ----------------------------------------------------------
-Test Failed.
-"compiler:sortBubble" end time: Jun 20 01:27 CEST
+Test Passed.
+"compiler:sortBubble" end time: Jun 20 19:37 CEST
 "compiler:sortBubble" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:arrayMax
 20/45 Testing: run:arrayMax.run1.out
 20/45 Test: run:arrayMax.run1.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/arrayMax" "-D" "expected=/home/javidan/pjp-semwork/tests/run/arrayMax.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:arrayMax.run1.out" start time: 
+"run:arrayMax.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:arrayMax.run1.out" end time: Jun 20 01:27 CEST
+"run:arrayMax.run1.out" end time: Jun 20 19:37 CEST
 "run:arrayMax.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:arrayTest
 21/45 Testing: run:arrayTest.run1.out
 21/45 Test: run:arrayTest.run1.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/arrayTest" "-D" "expected=/home/javidan/pjp-semwork/tests/run/arrayTest.run1.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/arrayTest.run1.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:arrayTest.run1.out" start time: 
+"run:arrayTest.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:arrayTest.run1.out" end time: Jun 20 01:27 CEST
+"run:arrayTest.run1.out" end time: Jun 20 19:37 CEST
 "run:arrayTest.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:arrayTest
 22/45 Testing: run:arrayTest.run2.out
 22/45 Test: run:arrayTest.run2.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/arrayTest" "-D" "expected=/home/javidan/pjp-semwork/tests/run/arrayTest.run2.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/arrayTest.run2.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:arrayTest.run2.out" start time: 
+"run:arrayTest.run2.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:arrayTest.run2.out" end time: Jun 20 01:27 CEST
+"run:arrayTest.run2.out" end time: Jun 20 19:37 CEST
 "run:arrayTest.run2.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:arrayTest
 23/45 Testing: run:arrayTest.run3.out
 23/45 Test: run:arrayTest.run3.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/arrayTest" "-D" "expected=/home/javidan/pjp-semwork/tests/run/arrayTest.run3.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/arrayTest.run3.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:arrayTest.run3.out" start time: 
+"run:arrayTest.run3.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:arrayTest.run3.out" end time: Jun 20 01:27 CEST
+"run:arrayTest.run3.out" end time: Jun 20 19:37 CEST
 "run:arrayTest.run3.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:arrayTest
 24/45 Testing: run:arrayTest.run4.out
 24/45 Test: run:arrayTest.run4.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/arrayTest" "-D" "expected=/home/javidan/pjp-semwork/tests/run/arrayTest.run4.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/arrayTest.run4.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:arrayTest.run4.out" start time: 
+"run:arrayTest.run4.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:arrayTest.run4.out" end time: Jun 20 01:27 CEST
+"run:arrayTest.run4.out" end time: Jun 20 19:37 CEST
 "run:arrayTest.run4.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -403,14 +368,14 @@ Test Passed.
 25/45 Test: run:consts.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/consts" "-D" "expected=/home/javidan/pjp-semwork/tests/run/consts.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:consts.run1.out" start time: Jun 20 01:27 CEST
+"run:consts.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:consts.run1.out" end time: Jun 20 01:27 CEST
+"run:consts.run1.out" end time: Jun 20 19:37 CEST
 "run:consts.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -418,14 +383,14 @@ Test Passed.
 26/45 Test: run:expressions.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions.run1.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions.run1.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions.run1.out" start time: Jun 20 01:27 CEST
+"run:expressions.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions.run1.out" end time: Jun 20 01:27 CEST
+"run:expressions.run1.out" end time: Jun 20 19:37 CEST
 "run:expressions.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -433,14 +398,14 @@ Test Passed.
 27/45 Test: run:expressions.run2.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions.run2.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions.run2.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions.run2.out" start time: Jun 20 01:27 CEST
+"run:expressions.run2.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions.run2.out" end time: Jun 20 01:27 CEST
+"run:expressions.run2.out" end time: Jun 20 19:37 CEST
 "run:expressions.run2.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -448,14 +413,14 @@ Test Passed.
 28/45 Test: run:expressions.run3.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions.run3.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions.run3.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions.run3.out" start time: Jun 20 01:27 CEST
+"run:expressions.run3.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions.run3.out" end time: Jun 20 01:27 CEST
+"run:expressions.run3.out" end time: Jun 20 19:37 CEST
 "run:expressions.run3.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -463,14 +428,14 @@ Test Passed.
 29/45 Test: run:expressions.run4.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions.run4.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions.run4.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions.run4.out" start time: Jun 20 01:27 CEST
+"run:expressions.run4.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions.run4.out" end time: Jun 20 01:27 CEST
+"run:expressions.run4.out" end time: Jun 20 19:37 CEST
 "run:expressions.run4.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -478,14 +443,14 @@ Test Passed.
 30/45 Test: run:expressions2.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions2" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions2.run1.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions2.run1.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions2.run1.out" start time: Jun 20 01:27 CEST
+"run:expressions2.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions2.run1.out" end time: Jun 20 01:27 CEST
+"run:expressions2.run1.out" end time: Jun 20 19:37 CEST
 "run:expressions2.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -493,14 +458,14 @@ Test Passed.
 31/45 Test: run:expressions2.run2.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions2" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions2.run2.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions2.run2.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions2.run2.out" start time: Jun 20 01:27 CEST
+"run:expressions2.run2.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions2.run2.out" end time: Jun 20 01:27 CEST
+"run:expressions2.run2.out" end time: Jun 20 19:37 CEST
 "run:expressions2.run2.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -508,14 +473,14 @@ Test Passed.
 32/45 Test: run:expressions2.run3.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/expressions2" "-D" "expected=/home/javidan/pjp-semwork/tests/run/expressions2.run3.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/expressions2.run3.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:expressions2.run3.out" start time: Jun 20 01:27 CEST
+"run:expressions2.run3.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:expressions2.run3.out" end time: Jun 20 01:27 CEST
+"run:expressions2.run3.out" end time: Jun 20 19:37 CEST
 "run:expressions2.run3.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -523,14 +488,14 @@ Test Passed.
 33/45 Test: run:factorial.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/factorial" "-D" "expected=/home/javidan/pjp-semwork/tests/run/factorial.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:factorial.run1.out" start time: Jun 20 01:27 CEST
+"run:factorial.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:factorial.run1.out" end time: Jun 20 01:27 CEST
+"run:factorial.run1.out" end time: Jun 20 19:37 CEST
 "run:factorial.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -538,14 +503,14 @@ Test Passed.
 34/45 Test: run:factorialRec.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/factorialRec" "-D" "expected=/home/javidan/pjp-semwork/tests/run/factorialRec.run1.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/factorialRec.run1.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:factorialRec.run1.out" start time: Jun 20 01:27 CEST
+"run:factorialRec.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:factorialRec.run1.out" end time: Jun 20 01:27 CEST
+"run:factorialRec.run1.out" end time: Jun 20 19:37 CEST
 "run:factorialRec.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -553,14 +518,14 @@ Test Passed.
 35/45 Test: run:factorialRec.run2.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/factorialRec" "-D" "expected=/home/javidan/pjp-semwork/tests/run/factorialRec.run2.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/factorialRec.run2.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:factorialRec.run2.out" start time: Jun 20 01:27 CEST
+"run:factorialRec.run2.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:factorialRec.run2.out" end time: Jun 20 01:27 CEST
+"run:factorialRec.run2.out" end time: Jun 20 19:37 CEST
 "run:factorialRec.run2.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -568,30 +533,265 @@ Test Passed.
 36/45 Test: run:factorialRec.run3.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/factorialRec" "-D" "expected=/home/javidan/pjp-semwork/tests/run/factorialRec.run3.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/factorialRec.run3.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:factorialRec.run3.out" start time: Jun 20 01:27 CEST
+"run:factorialRec.run3.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:factorialRec.run3.out" end time: Jun 20 01:27 CEST
+"run:factorialRec.run3.out" end time: Jun 20 19:37 CEST
 "run:factorialRec.run3.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:factorization
 37/45 Testing: run:factorization.run1.out
 37/45 Test: run:factorization.run1.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/factorization" "-D" "expected=/home/javidan/pjp-semwork/tests/run/factorization.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:factorization.run1.out" start time: 
+"run:factorization.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
+CMake Error at tests/run_test.cmake:36 (message):
+  Outputs differ.  "0
+
+  0
+
+  1
+
+  1
+
+  2
+
+  2
+
+  3
+
+  3
+
+  4
+
+  2
+
+  2
+
+  5
+
+  5
+
+  6
+
+  2
+
+  3
+
+  7
+
+  7
+
+  8
+
+  2
+
+  2
+
+  2
+
+  9
+
+  3
+
+  3
+
+  10
+
+  2
+
+  5
+
+  11
+
+  11
+
+  12
+
+  2
+
+  2
+
+  3
+
+  13
+
+  13
+
+  14
+
+  2
+
+  7
+
+  15
+
+  3
+
+  5
+
+  16
+
+  2
+
+  2
+
+  2
+
+  2
+
+  17
+
+  17
+
+  100
+
+  2
+
+  2
+
+  5
+
+  5
+
+  131
+
+  131
+
+  133
+
+  7
+
+  19" != "Factors of: 0
+
+  0
+
+  Factors of: 1
+
+  1
+
+  Factors of: 2
+
+  2
+
+  Factors of: 3
+
+  3
+
+  Factors of: 4
+
+  2
+
+  2
+
+  Factors of: 5
+
+  5
+
+  Factors of: 6
+
+  2
+
+  3
+
+  Factors of: 7
+
+  7
+
+  Factors of: 8
+
+  2
+
+  2
+
+  2
+
+  Factors of: 9
+
+  3
+
+  3
+
+  Factors of: 10
+
+  2
+
+  5
+
+  Factors of: 11
+
+  11
+
+  Factors of: 12
+
+  2
+
+  2
+
+  3
+
+  Factors of: 13
+
+  13
+
+  Factors of: 14
+
+  2
+
+  7
+
+  Factors of: 15
+
+  3
+
+  5
+
+  Factors of: 16
+
+  2
+
+  2
+
+  2
+
+  2
+
+  Factors of: 17
+
+  17
+
+  Factors of: 100
+
+  2
+
+  2
+
+  5
+
+  5
+
+  Factors of: 131
+
+  131
+
+  Factors of: 133
+
+  7
+
+  19"
+
+
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
-Test Passed.
-"run:factorization.run1.out" end time: Jun 20 01:27 CEST
+Test Failed.
+"run:factorization.run1.out" end time: Jun 20 19:37 CEST
 "run:factorization.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -599,30 +799,29 @@ Test Passed.
 38/45 Test: run:fibonacci.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/fibonacci" "-D" "expected=/home/javidan/pjp-semwork/tests/run/fibonacci.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:fibonacci.run1.out" start time: Jun 20 01:27 CEST
+"run:fibonacci.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:fibonacci.run1.out" end time: Jun 20 01:27 CEST
+"run:fibonacci.run1.out" end time: Jun 20 19:37 CEST
 "run:fibonacci.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:gcd
 39/45 Testing: run:gcd.run1.out
 39/45 Test: run:gcd.run1.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/gcd" "-D" "expected=/home/javidan/pjp-semwork/tests/run/gcd.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:gcd.run1.out" start time: 
+"run:gcd.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:gcd.run1.out" end time: Jun 20 01:27 CEST
+"run:gcd.run1.out" end time: Jun 20 19:37 CEST
 "run:gcd.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -630,14 +829,14 @@ Test Passed.
 40/45 Test: run:indirectrecursion.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/indirectrecursion" "-D" "expected=/home/javidan/pjp-semwork/tests/run/indirectrecursion.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:indirectrecursion.run1.out" start time: Jun 20 01:27 CEST
+"run:indirectrecursion.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:indirectrecursion.run1.out" end time: Jun 20 01:27 CEST
+"run:indirectrecursion.run1.out" end time: Jun 20 19:37 CEST
 "run:indirectrecursion.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -645,14 +844,14 @@ Test Passed.
 41/45 Test: run:inputOutput.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/inputOutput" "-D" "expected=/home/javidan/pjp-semwork/tests/run/inputOutput.run1.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/inputOutput.run1.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:inputOutput.run1.out" start time: Jun 20 01:27 CEST
+"run:inputOutput.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:inputOutput.run1.out" end time: Jun 20 01:27 CEST
+"run:inputOutput.run1.out" end time: Jun 20 19:37 CEST
 "run:inputOutput.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -660,14 +859,14 @@ Test Passed.
 42/45 Test: run:inputOutput.run2.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/inputOutput" "-D" "expected=/home/javidan/pjp-semwork/tests/run/inputOutput.run2.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/inputOutput.run2.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:inputOutput.run2.out" start time: Jun 20 01:27 CEST
+"run:inputOutput.run2.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:inputOutput.run2.out" end time: Jun 20 01:27 CEST
+"run:inputOutput.run2.out" end time: Jun 20 19:37 CEST
 "run:inputOutput.run2.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -675,14 +874,14 @@ Test Passed.
 43/45 Test: run:inputOutput.run3.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/inputOutput" "-D" "expected=/home/javidan/pjp-semwork/tests/run/inputOutput.run3.out" "-D" "input=/home/javidan/pjp-semwork/tests/run/inputOutput.run3.in" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:inputOutput.run3.out" start time: Jun 20 01:27 CEST
+"run:inputOutput.run3.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:inputOutput.run3.out" end time: Jun 20 01:27 CEST
+"run:inputOutput.run3.out" end time: Jun 20 19:37 CEST
 "run:inputOutput.run3.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
@@ -690,31 +889,30 @@ Test Passed.
 44/45 Test: run:isprime.run1.out
 Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/isprime" "-D" "expected=/home/javidan/pjp-semwork/tests/run/isprime.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:isprime.run1.out" start time: Jun 20 01:27 CEST
+"run:isprime.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
 Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:isprime.run1.out" end time: Jun 20 01:27 CEST
+"run:isprime.run1.out" end time: Jun 20 19:37 CEST
 "run:isprime.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-Failed test dependencies: compiler:sortBubble
 45/45 Testing: run:sortBubble.run1.out
 45/45 Test: run:sortBubble.run1.out
-Command: ""
+Command: "/usr/bin/cmake" "-D" "executable=/home/javidan/pjp-semwork/tests/sortBubble" "-D" "expected=/home/javidan/pjp-semwork/tests/run/sortBubble.run1.out" "-P" "/home/javidan/pjp-semwork/tests/run_test.cmake"
 Directory: /home/javidan/pjp-semwork
-"run:sortBubble.run1.out" start time: 
+"run:sortBubble.run1.out" start time: Jun 20 19:37 CEST
 Output:
 ----------------------------------------------------------
 <end of output>
-Test time =   0.00 sec
+Test time =   0.01 sec
 ----------------------------------------------------------
 Test Passed.
-"run:sortBubble.run1.out" end time: Jun 20 01:27 CEST
+"run:sortBubble.run1.out" end time: Jun 20 19:37 CEST
 "run:sortBubble.run1.out" time elapsed: 00:00:00
 ----------------------------------------------------------
 
-End testing: Jun 20 01:27 CEST
+End testing: Jun 20 19:37 CEST

@@ -2,6 +2,7 @@
 #define ASTH
 
 #include <llvm-16/llvm/IR/BasicBlock.h>
+#include <llvm-16/llvm/IR/GlobalVariable.h>
 #include <llvm-16/llvm/IR/Instructions.h>
 #include <llvm-16/llvm/IR/Type.h>
 #include <llvm-16/llvm/IR/Value.h>
@@ -30,26 +31,29 @@ enum binOps {
     LESSEQUAL = -21,
     GREATEQUAL = -22,
     OR = -24,
+    AND = -28,
 };
 
 class functionBodyNode;
+class program;
 struct llvmClasses;
 extern llvmClasses llvmC;
 struct arrayDeclaration;
 struct declaredVars {
     std::set<std::string> intMutables;
-    std::set<arrayDeclaration> intArrays;
+    std::vector<arrayDeclaration> intArrays;
     std::map<std::string, int> intConsts;
 };
 class ASTNode {
-   public:
     ASTNode* m_Parent = nullptr;
 
+   public:
     ASTNode() = default;
     ASTNode(ASTNode* parent);
     virtual ~ASTNode() = default;
     virtual llvm::Value* codegen();
     virtual functionBodyNode* getParentFunc();
+    virtual program* getParentProg();
     void setParent(ASTNode* parent);
 };
 
@@ -125,6 +129,9 @@ class functionBodyNode : public ASTNode {
     declaredVars m_DecVar;
     std::map<std::string, AllocaInst*> m_DynamicVars;
     std::map<std::string, Value*> m_ConstVars;
+
+    // array declarations 
+    std::map<std::string, arrayDeclaration> m_ArrayDecTable;
     llvm::BasicBlock* m_ExitBlock = nullptr;
 
    public:
@@ -135,14 +142,19 @@ class functionBodyNode : public ASTNode {
     llvm::Value* codegen() override;
     Value* getValue(const std::string& name);
     AllocaInst* getDynamicVar(const std::string& name);
+    arrayDeclaration getArrayDec(const std::string& name);
     llvm::BasicBlock* getExitBlock();
 };
 
 class program : public ASTNode {
-   public:
-    declaredVars globalVars;
     std::vector<std::shared_ptr<ASTNode>> m_Funcs;
-    // llvm::Value* codengen() override;
+    declaredVars globalVars;
+    std::map<std::string, GlobalVariable*> m_VarTable;
+   public:
+    program(const std::vector<std::shared_ptr<ASTNode>>& funcs);
+    void addGlobalVars(const declaredVars& toAdd);
+    llvm::Value* codegen() override;
+    program* getParentProg() override;
 };
 
 class returnNode : public ASTNode {
@@ -180,10 +192,21 @@ class forNode : public ASTNode {
     std::shared_ptr<binOperatorNode> m_Variable;
     std::shared_ptr<ASTNode> m_InitValue, m_FinalValue, m_Body;
     bool m_Downto;
+
    public:
     forNode(ASTNode* parent, std::shared_ptr<binOperatorNode> variable,
             std::shared_ptr<ASTNode> initValue,
-            std::shared_ptr<ASTNode> finalValue, std::shared_ptr<ASTNode> body, bool downto);
+            std::shared_ptr<ASTNode> finalValue, std::shared_ptr<ASTNode> body,
+            bool downto);
     llvm::Value* codegen() override;
 };
+
+class globalVarDeclaration : public ASTNode {
+    declaredVars m_Vars;
+
+   public:
+    globalVarDeclaration(ASTNode* parent, const declaredVars& vars);
+    llvm::Value* codegen() override;
+};
+
 #endif

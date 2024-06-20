@@ -1,0 +1,7 @@
+program basicarray;
+
+var I : array [0 .. 10] of integer;
+begin
+    I[10] := 5;
+    writeln(I[10]);
+end.

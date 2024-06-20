@@ -18,89 +18,96 @@ entry:
   %5 = icmp slt i32 %4, 2
   %6 = zext i1 %5 to i32
   %7 = icmp ne i32 %6, 0
-  br i1 %7, label %8, label %9
+  br i1 %7, label %8, label %10
 
 8:                                                ; preds = %entry
+  %9 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
-  br label %49
+  br label %56
 
-9:                                                ; preds = %entry
-  br label %10
+10:                                               ; preds = %entry
+  br label %11
 
-10:                                               ; preds = %9
-  %11 = load i32, ptr %1, align 4
-  %12 = icmp slt i32 %11, 4
-  %13 = zext i1 %12 to i32
-  %14 = icmp ne i32 %13, 0
-  br i1 %14, label %15, label %16
+11:                                               ; preds = %10
+  %12 = load i32, ptr %1, align 4
+  %13 = icmp slt i32 %12, 4
+  %14 = zext i1 %13 to i32
+  %15 = icmp ne i32 %14, 0
+  br i1 %15, label %16, label %18
 
-15:                                               ; preds = %10
+16:                                               ; preds = %11
+  %17 = load i32, ptr %2, align 4
   store i32 1, ptr %2, align 4
-  br label %49
+  br label %56
 
-16:                                               ; preds = %10
-  br label %17
+18:                                               ; preds = %11
+  br label %19
 
-17:                                               ; preds = %16
-  %18 = load i32, ptr %1, align 4
-  %19 = srem i32 %18, 2
-  %20 = icmp eq i32 %19, 0
-  %21 = load i32, ptr %1, align 4
-  %22 = srem i32 %21, 3
-  %23 = icmp eq i32 %22, 0
-  %24 = or i1 %20, %23
-  %25 = zext i1 %24 to i32
-  %26 = icmp ne i32 %25, 0
-  br i1 %26, label %27, label %28
+19:                                               ; preds = %18
+  %20 = load i32, ptr %1, align 4
+  %21 = srem i32 %20, 2
+  %22 = icmp eq i32 %21, 0
+  %23 = load i32, ptr %1, align 4
+  %24 = srem i32 %23, 3
+  %25 = icmp eq i32 %24, 0
+  %26 = or i1 %22, %25
+  %27 = zext i1 %26 to i32
+  %28 = icmp ne i32 %27, 0
+  br i1 %28, label %29, label %31
 
-27:                                               ; preds = %17
+29:                                               ; preds = %19
+  %30 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
-  br label %49
+  br label %56
 
-28:                                               ; preds = %17
-  br label %29
+31:                                               ; preds = %19
+  br label %32
 
-29:                                               ; preds = %28
+32:                                               ; preds = %31
+  %33 = load i32, ptr %2, align 4
   store i32 1, ptr %2, align 4
+  %34 = load i32, ptr %3, align 4
   store i32 5, ptr %3, align 4
-  br label %30
+  br label %35
 
-30:                                               ; preds = %45, %29
-  %31 = load i32, ptr %3, align 4
-  %32 = load i32, ptr %1, align 4
-  %33 = icmp slt i32 %31, %32
-  %34 = zext i1 %33 to i32
-  %35 = icmp ne i32 %34, 0
-  br i1 %35, label %36, label %48
-
-36:                                               ; preds = %30
+35:                                               ; preds = %51, %32
+  %36 = load i32, ptr %3, align 4
   %37 = load i32, ptr %1, align 4
-  %38 = load i32, ptr %3, align 4
-  %39 = srem i32 %37, %38
-  %40 = icmp eq i32 %39, 0
-  %41 = zext i1 %40 to i32
-  %42 = icmp ne i32 %41, 0
-  br i1 %42, label %43, label %44
+  %38 = icmp slt i32 %36, %37
+  %39 = zext i1 %38 to i32
+  %40 = icmp ne i32 %39, 0
+  br i1 %40, label %41, label %55
 
-43:                                               ; preds = %36
+41:                                               ; preds = %35
+  %42 = load i32, ptr %1, align 4
+  %43 = load i32, ptr %3, align 4
+  %44 = srem i32 %42, %43
+  %45 = icmp eq i32 %44, 0
+  %46 = zext i1 %45 to i32
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %50
+
+48:                                               ; preds = %41
+  %49 = load i32, ptr %2, align 4
   store i32 0, ptr %2, align 4
-  br label %49
+  br label %56
 
-44:                                               ; preds = %36
-  br label %45
+50:                                               ; preds = %41
+  br label %51
 
-45:                                               ; preds = %44
-  %46 = load i32, ptr %3, align 4
-  %47 = add i32 %46, 2
-  store i32 %47, ptr %3, align 4
-  br label %30
+51:                                               ; preds = %50
+  %52 = load i32, ptr %3, align 4
+  %53 = load i32, ptr %3, align 4
+  %54 = add i32 %53, 2
+  store i32 %54, ptr %3, align 4
+  br label %35
 
-48:                                               ; preds = %30
-  br label %49
+55:                                               ; preds = %35
+  br label %56
 
-49:                                               ; preds = %48, %43, %27, %15, %8
-  %50 = load i32, ptr %2, align 4
-  ret i32 %50
+56:                                               ; preds = %55, %48, %29, %16, %8
+  %57 = load i32, ptr %2, align 4
+  ret i32 %57
 }
 
 define i32 @main() {

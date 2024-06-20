@@ -1,6 +1,7 @@
 #include <llvm-16/llvm/ADT/APInt.h>
 #include <llvm-16/llvm/IR/BasicBlock.h>
 #include <llvm-16/llvm/IR/DerivedTypes.h>
+#include <llvm-16/llvm/IR/Intrinsics.h>
 
 #include <iostream>
 #include <istream>
@@ -16,6 +17,8 @@
 #include "Parser.hpp"
 
 llvmClasses llvmC;
+arrayDeclaration::arrayDeclaration(std::string name, int lowerIdx, int upperIdx)
+    : m_Name(name), m_LowerIdx(lowerIdx), m_UpperIdx(upperIdx) {}
 Parser::Parser(std::istream& os)
     : m_Lexer(os),
       MilaContext(),
@@ -77,9 +80,17 @@ std::shared_ptr<functionBodyNode> Parser::parseMainFunction() {
 std::shared_ptr<ASTNode> Parser::parsePrimary() {
     std::shared_ptr<ASTNode> LHS;
     switch (CurTok) {
-        case Token::tok_identifier:
-            return std::make_shared<binOperatorNode>(nullptr, parseIdentifier(),
-                                                     nullptr, binOps::VARIABLE);
+        case Token::tok_identifier: {
+            auto LHS = parseIdentifier();
+            if (CurTok != '[')
+                return std::make_shared<binOperatorNode>(
+                    nullptr, LHS, nullptr, binOps::VARIABLE);
+            consume('[');
+            auto RHS = parseBinOp();
+            consume(']');
+            return std::make_shared<binOperatorNode>(
+                nullptr, LHS, RHS, binOps::ARRAYIDX);
+        }
         case '-':
         case Token::tok_number:
             return parseNumber();
@@ -128,6 +139,19 @@ std::shared_ptr<ASTNode> Parser::parseNumber() {
     return (negative ? retvalNegative : retval);
 }
 
+int Parser::parseNumberInt() {
+    bool negative = false;
+    if (CurTok == '-') {
+        consume('-');
+        negative = true;
+    }
+
+    int retval = m_Lexer.numVal();
+
+    consume(Token::tok_number);
+
+    return (negative ? 0 - retval : retval);
+}
 std::shared_ptr<ASTNode> Parser::parseCodeBlock() {
     std::vector<std::shared_ptr<ASTNode>> returnVector;
     consume(Token::tok_begin);
@@ -161,12 +185,29 @@ declaredVars Parser::parseVariables() {
         switch (CurTok) {
             case Token::tok_var: {
                 consume(Token::tok_var);
+                std::set<std::string> names;
                 while (CurTok == Token::tok_identifier) {
                     varNames = parseIdentifiers();
-                    toReturn.intMutables.insert(varNames.begin(),
-                                                varNames.end());
                     consume(':');
-                    consume(Token::tok_integer);
+                    if (CurTok == Token::tok_integer) {
+                        consume(Token::tok_integer);
+                        toReturn.intMutables.insert(varNames.begin(),
+                                                    varNames.end());
+                    } else if (CurTok == Token::tok_array) {
+                        consume(Token::tok_array);
+                        consume('[');
+                        int lowerIdx = parseNumberInt();
+                        consume('.');
+                        consume('.');
+                        int upperIdx = parseNumberInt();
+                        consume(']');
+                        consume(Token::tok_of);
+                        consume(Token::tok_integer);
+                        for (auto i : varNames) {
+                            toReturn.intArrays.push_back(
+                                arrayDeclaration(i, lowerIdx, upperIdx));
+                        }
+                    }
                     consume(';');
                 }
                 break;
@@ -199,12 +240,13 @@ std::shared_ptr<ASTNode> Parser::parseBinOpLvl1() {
     while (1) {
         auto backup = CurTok;
         switch (backup) {
-            case '(':
             case '[': {
                 consume(backup);
                 auto RHS = parseBinOpLvl1();
+                consume(']');
                 LHS = std::make_shared<binOperatorNode>(nullptr, LHS, RHS,
-                                                        (binOps)backup);
+                                                        binOps::ARRAYIDX);
+                consume(']');
                 break;
             }
             default:
@@ -218,7 +260,7 @@ std::shared_ptr<ASTNode> Parser::parseBinOpLvl2() {
         auto backup = CurTok;
         switch (backup) {
             case '*':
-            case '/':
+            case Token::tok_div:
             case Token::tok_mod: {
                 consume(backup);
                 auto RHS = parseBinOpLvl1();
@@ -276,6 +318,7 @@ std::shared_ptr<ASTNode> Parser::parseBinOpLvl5() {
         switch (backup) {
             case '=':
             case Token::tok_notequal:
+            case Token::tok_and:
             case Token::tok_or: {
                 consume(backup);
                 auto RHS = parseBinOpLvl4();
@@ -354,28 +397,29 @@ std::shared_ptr<ASTNode> Parser::parseWhile() {
     return std::make_shared<whileNode>(nullptr, condition, body);
 }
 
-std::shared_ptr<ASTNode> Parser::parseFor(){
-    bool downto=false;
+std::shared_ptr<ASTNode> Parser::parseFor() {
+    bool downto = false;
     consume(Token::tok_for);
 
-    std::shared_ptr<binOperatorNode> variable = 
+    std::shared_ptr<binOperatorNode> variable =
         std::dynamic_pointer_cast<binOperatorNode>(parsePrimary());
 
     consume(Token::tok_assign);
     std::shared_ptr<ASTNode> init = parseBinOp();
 
-    if(CurTok==Token::tok_downto){
+    if (CurTok == Token::tok_downto) {
         consume(Token::tok_downto);
         downto = true;
-    }
-    else consume(Token::tok_to);
+    } else
+        consume(Token::tok_to);
 
     std::shared_ptr<ASTNode> final = parseBinOp();
 
     consume(Token::tok_do);
 
     std::shared_ptr<ASTNode> body = parseExpression();
-    return std::make_shared<forNode>(nullptr,variable, init, final, body, downto);
+    return std::make_shared<forNode>(nullptr, variable, init, final, body,
+                                     downto);
 }
 // parse the program (only functions)
 // S := FUNCTION | MAINFUNCTION
@@ -402,8 +446,7 @@ bool Parser::Parse() {
                 break;
         }
     }
-    m_Program = std::make_shared<program>();
-    m_Program->m_Funcs = funcs;
+    m_Program = std::make_shared<program>(funcs);
     return true;
 }
 const llvm::Module& Parser::Generate() {
@@ -432,7 +475,7 @@ const llvm::Module& Parser::Generate() {
             FT, llvm::Function::ExternalLinkage, "readln", MilaModule);
         for (auto& Arg : F->args()) Arg.setName("x");
     }
-    for (auto i : m_Program->m_Funcs) i->codegen();
+    m_Program->codegen();
     return this->MilaModule;
 }
 

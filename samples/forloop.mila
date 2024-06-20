@@ -1,8 +1,10 @@
 program forloop;
 
 var I, B : integer;
+var X : array [0 .. 5] of integer;
 begin
-    for I := 10 downto 0 do 
+    readln(B);
+    for I := B downto 0 do 
     begin
         writeln(I);
     end;

@@ -1,60 +1,48 @@
-compiler:arrayMax 0 0
-compiler:arrayTest 0 0
-compiler:consts 12 0.00908919
-compiler:expressions 15 0.00730429
-compiler:expressions2 19 0.00592313
-compiler:factorial 5 0.0224616
-compiler:factorialCycle 6 0.0184578
-compiler:factorialRec 20 0.00555086
-compiler:factorization 0 0
-compiler:fibonacci 28 0.00392902
-compiler:gcd 0 0
+compiler:arrayMax 24 0.00468064
+compiler:arrayTest 23 0.00483024
+compiler:consts 38 0.00286598
+compiler:expressions 41 0.00264069
+compiler:expressions2 45 0.00244285
+compiler:factorial 31 0.00357888
+compiler:factorialCycle 32 0.00342787
+compiler:factorialRec 46 0.00236681
+compiler:factorization 18 0.00617965
+compiler:fibonacci 54 0.0020283
+compiler:gcd 15 0.00750731
 compiler:ifcodeblock 0 0
-compiler:indirectrecursion 31 0.00360201
-compiler:inputOutput 29 0.00373886
-compiler:isprime 6 0.0186436
-compiler:multarg 30 0.00366811
-compiler:nestedifelse 31 0.00348526
-compiler:proceduretest 30 0.00360541
-compiler:sortBubble 0 0
-run:arrayMax.run1.out 0 0
-run:arrayTest.run1.out 0 0
-run:arrayTest.run2.out 0 0
-run:arrayTest.run3.out 0 0
-run:arrayTest.run4.out 0 0
-run:consts.run1.out 10 0.0010502
-run:expressions.run1.out 12 0.000946686
-run:expressions.run2.out 12 0.000841458
-run:expressions.run3.out 12 0.000834683
-run:expressions.run4.out 12 0.000804522
-run:expressions2.run1.out 19 0.000561822
-run:expressions2.run2.out 19 0.000525077
-run:expressions2.run3.out 19 0.00050352
-run:factorial.run1.out 5 0.00184142
-run:factorialRec.run1.out 20 0.000471129
-run:factorialRec.run2.out 20 0.000499189
-run:factorialRec.run3.out 20 0.000474269
+compiler:indirectrecursion 57 0.00194024
+compiler:inputOutput 55 0.00198429
+compiler:isprime 32 0.00349243
+compiler:multarg 56 0.00192455
+compiler:nestedifelse 57 0.00190763
+compiler:proceduretest 56 0.00193504
+compiler:sortBubble 24 0.00460338
+run:arrayMax.run1.out 4 0.00261951
+run:arrayTest.run1.out 16 0.000659617
+run:arrayTest.run2.out 17 0.000573521
+run:arrayTest.run3.out 16 0.000601199
+run:arrayTest.run4.out 12 0.000776159
+run:consts.run1.out 36 0.000283089
+run:expressions.run1.out 38 0.000258933
+run:expressions.run2.out 38 0.000254833
+run:expressions.run3.out 38 0.000250609
+run:expressions.run4.out 38 0.000257601
+run:expressions2.run1.out 45 0.000228395
+run:expressions2.run2.out 45 0.000224905
+run:expressions2.run3.out 45 0.000214491
+run:factorial.run1.out 31 0.0003192
+run:factorialRec.run1.out 46 0.000218541
+run:factorialRec.run2.out 46 0.000218441
+run:factorialRec.run3.out 46 0.00021178
 run:factorization.run1.out 0 0
-run:fibonacci.run1.out 20 0.000472764
-run:gcd.run1.out 0 0
-run:indirectrecursion.run1.out 22 0.000435122
-run:inputOutput.run1.out 21 0.000552291
-run:inputOutput.run2.out 21 0.000480444
-run:inputOutput.run3.out 21 0.000488247
-run:isprime.run1.out 6 0.00163861
-run:sortBubble.run1.out 0 0
+run:fibonacci.run1.out 46 0.000214226
+run:gcd.run1.out 15 0.000689363
+run:indirectrecursion.run1.out 48 0.000204488
+run:inputOutput.run1.out 47 0.000200347
+run:inputOutput.run2.out 47 0.000202154
+run:inputOutput.run3.out 47 0.000214227
+run:isprime.run1.out 32 0.000315786
+run:sortBubble.run1.out 4 0.00245178
 ---
-compiler:arrayMax
-compiler:arrayTest
-compiler:factorization
-compiler:gcd
 compiler:ifcodeblock
-compiler:sortBubble
-run:arrayMax.run1.out
-run:arrayTest.run1.out
-run:arrayTest.run2.out
-run:arrayTest.run3.out
-run:arrayTest.run4.out
 run:factorization.run1.out
-run:gcd.run1.out
-run:sortBubble.run1.out

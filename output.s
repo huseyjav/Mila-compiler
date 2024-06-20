@@ -17,7 +17,7 @@ main:                                   # @main
 	movslq	4(%rsp), %rax
 	movl	$20, %ecx
 	subl	%eax, %ecx
-	movl	%ecx, 20(%rsp,%rax,4)
+	movl	%ecx, 20(%rsp,%rax,8)
 	incl	%eax
 	movl	%eax, 4(%rsp)
 	cmpl	$20, 4(%rsp)
@@ -29,7 +29,7 @@ main:                                   # @main
 	.p2align	4, 0x90
 .LBB0_5:                                # =>This Inner Loop Header: Depth=1
 	movslq	4(%rsp), %rax
-	movl	20(%rsp,%rax,4), %edi
+	movl	20(%rsp,%rax,8), %edi
 	callq	writeln@PLT
 	incl	4(%rsp)
 	cmpl	$20, 4(%rsp)
@@ -57,23 +57,23 @@ main:                                   # @main
 	jl	.LBB0_13
 # %bb.10:                               #   in Loop: Header=BB0_9 Depth=2
 	movslq	8(%rsp), %rax
-	movl	20(%rsp,%rax,4), %ecx
+	movl	20(%rsp,%rax,8), %ecx
 	decl	%eax
 	cltq
-	cmpl	20(%rsp,%rax,4), %ecx
+	cmpl	20(%rsp,%rax,8), %ecx
 	jge	.LBB0_12
 # %bb.11:                               #   in Loop: Header=BB0_9 Depth=2
 	movl	8(%rsp), %eax
 	decl	%eax
 	cltq
-	movl	20(%rsp,%rax,4), %eax
+	movl	20(%rsp,%rax,8), %eax
 	movl	%eax, 16(%rsp)
 	movslq	8(%rsp), %rcx
 	leal	-1(%rcx), %edx
 	movslq	%edx, %rdx
-	movl	20(%rsp,%rcx,4), %esi
-	movl	%esi, 20(%rsp,%rdx,4)
-	movl	%eax, 20(%rsp,%rcx,4)
+	movl	20(%rsp,%rcx,8), %esi
+	movl	%esi, 20(%rsp,%rdx,8)
+	movl	%eax, 20(%rsp,%rcx,8)
 	jmp	.LBB0_12
 .LBB0_14:
 	movl	$0, 4(%rsp)
@@ -82,7 +82,7 @@ main:                                   # @main
 	.p2align	4, 0x90
 .LBB0_16:                               # =>This Inner Loop Header: Depth=1
 	movslq	4(%rsp), %rax
-	movl	20(%rsp,%rax,4), %edi
+	movl	20(%rsp,%rax,8), %edi
 	callq	writeln@PLT
 	incl	4(%rsp)
 	cmpl	$20, 4(%rsp)

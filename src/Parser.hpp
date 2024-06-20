@@ -29,9 +29,11 @@ struct llvmClasses{
     llvm::Module* MilaModule;         // llvm module
 };
 struct arrayDeclaration{
-    std::string name;
-    int lowerIdx;
-    int upperIdx;
+    std::string m_Name;
+    int m_LowerIdx;
+    int m_UpperIdx;
+    arrayDeclaration(std::string name, int lowerIdx, int upperIdx);
+    arrayDeclaration() = default;
 };
 struct declaredVars;
 extern llvmClasses llvmC;
@@ -72,6 +74,7 @@ private:
     std::shared_ptr<ASTNode> parseBinOpLvl5();
     std::shared_ptr<ASTNode> parseBinOpLvl6();
     std::shared_ptr<ASTNode> parseNumber();
+    int parseNumberInt();
     std::shared_ptr<ASTNode> parseIdentifier();
     std::shared_ptr<ASTNode> parseCodeBlock();
     std::shared_ptr<ASTNode> parseExit();

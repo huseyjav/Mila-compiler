@@ -1,0 +1,193 @@
+; ModuleID = 'mila'
+source_filename = "mila"
+
+declare i32 @writeln(i32)
+
+declare i32 @write(i32)
+
+declare i32 @readln(ptr)
+
+define void @factorization(i32 %0) {
+entry:
+  %1 = alloca i32, align 4
+  store i32 %0, ptr %1, align 4
+  %2 = alloca i32, align 4
+  %3 = alloca i32, align 4
+  %4 = load i32, ptr %1, align 4
+  %5 = call i32 @writeln(i32 %4)
+  %6 = load i32, ptr %1, align 4
+  %7 = icmp slt i32 %6, 4
+  %8 = zext i1 %7 to i32
+  %9 = icmp ne i32 %8, 0
+  br i1 %9, label %10, label %13
+
+10:                                               ; preds = %entry
+  %11 = load i32, ptr %1, align 4
+  %12 = call i32 @writeln(i32 %11)
+  br label %95
+
+13:                                               ; preds = %entry
+  br label %14
+
+14:                                               ; preds = %13
+  br label %15
+
+15:                                               ; preds = %21, %14
+  %16 = load i32, ptr %1, align 4
+  %17 = srem i32 %16, 2
+  %18 = icmp eq i32 %17, 0
+  %19 = zext i1 %18 to i32
+  %20 = icmp ne i32 %19, 0
+  br i1 %20, label %21, label %26
+
+21:                                               ; preds = %15
+  %22 = call i32 @writeln(i32 2)
+  %23 = load i32, ptr %1, align 4
+  %24 = load i32, ptr %1, align 4
+  %25 = sdiv i32 %24, 2
+  store i32 %25, ptr %1, align 4
+  br label %15
+
+26:                                               ; preds = %15
+  br label %27
+
+27:                                               ; preds = %33, %26
+  %28 = load i32, ptr %1, align 4
+  %29 = srem i32 %28, 3
+  %30 = icmp eq i32 %29, 0
+  %31 = zext i1 %30 to i32
+  %32 = icmp ne i32 %31, 0
+  br i1 %32, label %33, label %38
+
+33:                                               ; preds = %27
+  %34 = call i32 @writeln(i32 3)
+  %35 = load i32, ptr %1, align 4
+  %36 = load i32, ptr %1, align 4
+  %37 = sdiv i32 %36, 3
+  store i32 %37, ptr %1, align 4
+  br label %27
+
+38:                                               ; preds = %27
+  %39 = load i32, ptr %3, align 4
+  %40 = load i32, ptr %1, align 4
+  store i32 %40, ptr %3, align 4
+  %41 = load i32, ptr %2, align 4
+  store i32 5, ptr %2, align 4
+  br label %42
+
+42:                                               ; preds = %81, %38
+  %43 = load i32, ptr %2, align 4
+  %44 = load i32, ptr %3, align 4
+  %45 = icmp sle i32 %43, %44
+  %46 = zext i1 %45 to i32
+  %47 = icmp ne i32 %46, 0
+  br i1 %47, label %48, label %85
+
+48:                                               ; preds = %42
+  br label %49
+
+49:                                               ; preds = %56, %48
+  %50 = load i32, ptr %1, align 4
+  %51 = load i32, ptr %2, align 4
+  %52 = srem i32 %50, %51
+  %53 = icmp eq i32 %52, 0
+  %54 = zext i1 %53 to i32
+  %55 = icmp ne i32 %54, 0
+  br i1 %55, label %56, label %63
+
+56:                                               ; preds = %49
+  %57 = load i32, ptr %2, align 4
+  %58 = call i32 @writeln(i32 %57)
+  %59 = load i32, ptr %1, align 4
+  %60 = load i32, ptr %1, align 4
+  %61 = load i32, ptr %2, align 4
+  %62 = sdiv i32 %60, %61
+  store i32 %62, ptr %1, align 4
+  br label %49
+
+63:                                               ; preds = %49
+  %64 = load i32, ptr %2, align 4
+  %65 = load i32, ptr %2, align 4
+  %66 = add i32 %65, 2
+  store i32 %66, ptr %2, align 4
+  br label %67
+
+67:                                               ; preds = %74, %63
+  %68 = load i32, ptr %1, align 4
+  %69 = load i32, ptr %2, align 4
+  %70 = srem i32 %68, %69
+  %71 = icmp eq i32 %70, 0
+  %72 = zext i1 %71 to i32
+  %73 = icmp ne i32 %72, 0
+  br i1 %73, label %74, label %81
+
+74:                                               ; preds = %67
+  %75 = load i32, ptr %2, align 4
+  %76 = call i32 @writeln(i32 %75)
+  %77 = load i32, ptr %1, align 4
+  %78 = load i32, ptr %1, align 4
+  %79 = load i32, ptr %2, align 4
+  %80 = sdiv i32 %78, %79
+  store i32 %80, ptr %1, align 4
+  br label %67
+
+81:                                               ; preds = %67
+  %82 = load i32, ptr %2, align 4
+  %83 = load i32, ptr %2, align 4
+  %84 = add i32 %83, 4
+  store i32 %84, ptr %2, align 4
+  br label %42
+
+85:                                               ; preds = %42
+  %86 = load i32, ptr %1, align 4
+  %87 = icmp ne i32 %86, 1
+  %88 = zext i1 %87 to i32
+  %89 = icmp ne i32 %88, 0
+  br i1 %89, label %90, label %93
+
+90:                                               ; preds = %85
+  %91 = load i32, ptr %1, align 4
+  %92 = call i32 @writeln(i32 %91)
+  br label %94
+
+93:                                               ; preds = %85
+  br label %94
+
+94:                                               ; preds = %93, %90
+  br label %95
+
+95:                                               ; preds = %94, %10
+  ret void
+}
+
+define i32 @main() {
+entry:
+  %0 = alloca i32, align 4
+  store i32 0, ptr %0, align 4
+  call void @factorization(i32 0)
+  call void @factorization(i32 1)
+  call void @factorization(i32 2)
+  call void @factorization(i32 3)
+  call void @factorization(i32 4)
+  call void @factorization(i32 5)
+  call void @factorization(i32 6)
+  call void @factorization(i32 7)
+  call void @factorization(i32 8)
+  call void @factorization(i32 9)
+  call void @factorization(i32 10)
+  call void @factorization(i32 11)
+  call void @factorization(i32 12)
+  call void @factorization(i32 13)
+  call void @factorization(i32 14)
+  call void @factorization(i32 15)
+  call void @factorization(i32 16)
+  call void @factorization(i32 17)
+  call void @factorization(i32 100)
+  call void @factorization(i32 131)
+  call void @factorization(i32 133)
+  br label %1
+
+1:                                                ; preds = %entry
+  %2 = load i32, ptr %0, align 4
+  ret i32 %2
+}

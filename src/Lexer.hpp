@@ -109,6 +109,7 @@ enum Token {
     // keywords for array
     tok_array = -32,
     tok_break = -33,
+    tok_of = -34,
 };
 
 #endif  // PJPPROJECT_LEXER_HPP

@@ -1,6 +1,7 @@
 #include <AST.h>
 #include <llvm-16/llvm/IR/BasicBlock.h>
 #include <llvm-16/llvm/IR/Constants.h>
+#include <llvm-16/llvm/IR/DerivedTypes.h>
 #include <llvm-16/llvm/IR/Function.h>
 #include <llvm-16/llvm/IR/Value.h>
 
@@ -51,6 +52,8 @@ functionBodyNode::functionBodyNode(ASTNode* parent,
 }
 
 functionBodyNode* ASTNode::getParentFunc() { return m_Parent->getParentFunc(); }
+
+program* ASTNode::getParentProg() { return m_Parent->getParentProg(); }
 
 functionBodyNode* functionBodyNode::getParentFunc() { return this; }
 
@@ -113,14 +116,26 @@ llvm::Value* functionBodyNode::codegen() {
                                    0),
             m_DynamicVars[m_Definition->m_FuncName]);
     }
-    for (auto i : m_DecVar.intMutables) {
-        m_DynamicVars[i] = llvmC.MilaBuilder->CreateAlloca(
-            Type::getInt32Ty(*llvmC.MilaContext));
-    }
+
+    // CONSTANT DECLARATIONS
     for (auto i : m_DecVar.intConsts) {
         m_ConstVars[i.first] =
             ConstantInt::get(*llvmC.MilaContext, llvm::APInt(32, i.second));
     }
+
+    // MUTABLE DECLARATIONS
+    for (auto i : m_DecVar.intMutables) {
+        m_DynamicVars[i] = llvmC.MilaBuilder->CreateAlloca(
+            Type::getInt32Ty(*llvmC.MilaContext));
+    }
+
+    for (auto& i : m_DecVar.intArrays) {
+        m_ArrayDecTable[i.m_Name] = i;
+        m_DynamicVars[i.m_Name] = llvmC.MilaBuilder->CreateAlloca(
+            llvm::ArrayType::get(Type::getInt32Ty(*llvmC.MilaContext),
+                                 i.m_UpperIdx - i.m_LowerIdx + 1));
+    }
+
     m_Body->codegen();
     if (!llvmC.MilaBuilder->GetInsertBlock()->getTerminator())
         llvmC.MilaBuilder->CreateBr(m_ExitBlock);
@@ -142,6 +157,9 @@ AllocaInst* functionBodyNode::getDynamicVar(const std::string& name) {
     if (!m_DynamicVars.count(name))
         throw std::invalid_argument("dynamic variable doesnt exist");
     return m_DynamicVars[name];
+}
+arrayDeclaration functionBodyNode::getArrayDec(const std::string& name) {
+    return m_ArrayDecTable[name];
 }
 
 llvm::BasicBlock* functionBodyNode::getExitBlock() { return m_ExitBlock; }
@@ -182,22 +200,39 @@ llvm::Value* ifElseNode::codegen() {
     return nullptr;
 }
 llvm::Value* binOperatorNode::getPtr() {
+    std::shared_ptr<identifierNode> LhsIdentifier =
+        std::dynamic_pointer_cast<identifierNode>(m_Lhs);
+    if (!LhsIdentifier)
+        throw std::invalid_argument("assignment operator LHS not identifier");
+    auto pointer = getParentFunc()->getDynamicVar(LhsIdentifier->getId());
     if (m_OpType == binOps::VARIABLE) {
-        std::shared_ptr<identifierNode> LhsIdentifier =
-            std::dynamic_pointer_cast<identifierNode>(m_Lhs);
-        if (!LhsIdentifier)
-            throw std::invalid_argument(
-                "assignment operator LHS not identifier");
-        return getParentFunc()->getDynamicVar(LhsIdentifier->getId());
+        return pointer;
+    }
+    if (m_OpType == binOps::ARRAYIDX) {
+        auto idx = llvmC.MilaBuilder->CreateSub(
+            m_Rhs->codegen(),
+            llvm::ConstantInt::get(llvm::Type::getInt32Ty(*llvmC.MilaContext),
+                                   getParentFunc()
+                                       ->getArrayDec(LhsIdentifier->getId())
+                                       .m_LowerIdx));
+        std::vector<llvm::Value*> indices;
+        indices.push_back(llvm::ConstantInt::get(
+            llvm::Type::getInt32Ty(*llvmC.MilaContext),
+            0));  // GEP's first index for arrays is always 0
+        indices.push_back(idx);
+        return llvmC.MilaBuilder->CreateGEP(
+            Type::getInt32Ty(*llvmC.MilaContext), pointer, idx);
     }
     throw std::invalid_argument("no get ptr available for this operation");
 }
 llvm::Value* binOperatorNode::codegen() {
     Value* leftVal = nullptr;
-    if (m_OpType == binOps::VARIABLE) return m_Lhs->codegen();
-    if (m_OpType != binOps::ASSIGN) leftVal = m_Lhs->codegen();
-    auto rightVal = m_Rhs->codegen();
+    llvm::Value* rightVal = nullptr;
+    if (m_OpType != binOps::ARRAYIDX) leftVal = m_Lhs->codegen();
+    if (m_OpType != binOps::VARIABLE) rightVal = m_Rhs->codegen();
     switch (m_OpType) {
+        case binOps::VARIABLE:
+            return leftVal;
         case binOps::ADD:
             return llvmC.MilaBuilder->CreateAdd(leftVal, rightVal);
         case binOps::SUBTRACT:
@@ -225,10 +260,41 @@ llvm::Value* binOperatorNode::codegen() {
             return llvmC.MilaBuilder->CreateStore(rightVal,
                                                   LhsIdentifier->getPtr());
         }
+        case binOps::ARRAYIDX: {
+            std::shared_ptr<identifierNode> LhsIdentifier =
+                std::dynamic_pointer_cast<identifierNode>(m_Lhs);
+            if (!LhsIdentifier)
+                throw std::invalid_argument(
+                    "assignment operator LHS not identifier");
+            auto pointer =
+                getParentFunc()->getDynamicVar(LhsIdentifier->getId());
+            auto idx = llvmC.MilaBuilder->CreateSub(
+                rightVal, llvm::ConstantInt::get(
+                              llvm::Type::getInt32Ty(*llvmC.MilaContext),
+                              getParentFunc()
+                                  ->getArrayDec(LhsIdentifier->getId())
+                                  .m_LowerIdx));
+            std::vector<llvm::Value*> indices;
+            indices.push_back(llvm::ConstantInt::get(
+                llvm::Type::getInt32Ty(*llvmC.MilaContext),
+                0));  // GEP's first index for arrays is always 0
+            indices.push_back(idx);
+            return llvmC.MilaBuilder->CreateLoad(
+                llvm::Type::getInt32Ty(*llvmC.MilaContext),
+                llvmC.MilaBuilder->CreateGEP(
+                    Type::getInt32Ty(*llvmC.MilaContext), pointer, idx));
+        }
+        case binOps::AND:
+            return llvmC.MilaBuilder->CreateAnd(leftVal, rightVal);
         case binOps::OR:
             return llvmC.MilaBuilder->CreateOr(leftVal, rightVal);
+        case binOps::NOTEQUAL:
+            return llvmC.MilaBuilder->CreateICmpNE(leftVal, rightVal);
+        case binOps::LESSEQUAL:
+            return llvmC.MilaBuilder->CreateICmpSLE(leftVal, rightVal);
+        default:
+            throw std::invalid_argument("unsupported operation");
     }
-    throw std::invalid_argument("unsupported operation");
     return nullptr;
 }
 
@@ -412,3 +478,24 @@ llvm::Value* forNode::codegen() {
     llvmC.MilaBuilder->SetInsertPoint(endBlock);
     return nullptr;
 }
+
+globalVarDeclaration::globalVarDeclaration(ASTNode* parent,
+                                           const declaredVars& vars)
+    : ASTNode(parent), m_Vars(vars) {}
+
+llvm::Value* globalVarDeclaration::codegen() {
+    getParentProg()->addGlobalVars(m_Vars);
+    return nullptr;
+}
+
+program::program(const std::vector<std::shared_ptr<ASTNode>>& funcs)
+    : m_Funcs(funcs) {
+    for (auto i : m_Funcs) i->setParent(this);
+}
+void program::addGlobalVars(const declaredVars& toAdd) {}
+llvm::Value* program::codegen() {
+    for (auto i : m_Funcs) i->codegen();
+    return nullptr;
+}
+
+program* program::getParentProg() { return this; }
