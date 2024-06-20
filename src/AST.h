@@ -1,11 +1,11 @@
 #ifndef ASTH
 #define ASTH
 
-#include <llvm-16/llvm/IR/BasicBlock.h>
-#include <llvm-16/llvm/IR/GlobalVariable.h>
-#include <llvm-16/llvm/IR/Instructions.h>
-#include <llvm-16/llvm/IR/Type.h>
-#include <llvm-16/llvm/IR/Value.h>
+#include <llvm/IR/BasicBlock.h>
+#include <llvm/IR/GlobalVariable.h>
+#include <llvm/IR/Instructions.h>
+#include <llvm/IR/Type.h>
+#include <llvm/IR/Value.h>
 
 #include <map>
 #include <memory>
@@ -55,6 +55,7 @@ class ASTNode {
     virtual functionBodyNode* getParentFunc();
     virtual program* getParentProg();
     void setParent(ASTNode* parent);
+    virtual BasicBlock* getBreakBlock();
 };
 
 class numberNode : public ASTNode {
@@ -181,24 +182,26 @@ class exitNode : public ASTNode {
 
 class whileNode : public ASTNode {
     std::shared_ptr<ASTNode> m_Condition, m_Body;
-
+    BasicBlock* m_End;
    public:
     whileNode(ASTNode* parent, std::shared_ptr<ASTNode> condition,
               std::shared_ptr<ASTNode> body);
     llvm::Value* codegen() override;
+    BasicBlock* getBreakBlock() override;
 };
 
 class forNode : public ASTNode {
     std::shared_ptr<binOperatorNode> m_Variable;
     std::shared_ptr<ASTNode> m_InitValue, m_FinalValue, m_Body;
     bool m_Downto;
-
+    BasicBlock* m_End;
    public:
     forNode(ASTNode* parent, std::shared_ptr<binOperatorNode> variable,
             std::shared_ptr<ASTNode> initValue,
             std::shared_ptr<ASTNode> finalValue, std::shared_ptr<ASTNode> body,
             bool downto);
     llvm::Value* codegen() override;
+    BasicBlock* getBreakBlock() override;
 };
 
 class globalVarDeclaration : public ASTNode {
@@ -206,6 +209,12 @@ class globalVarDeclaration : public ASTNode {
 
    public:
     globalVarDeclaration(ASTNode* parent, const declaredVars& vars);
+    llvm::Value* codegen() override;
+};
+
+class breakNode : public ASTNode {
+    
+public:
     llvm::Value* codegen() override;
 };
 

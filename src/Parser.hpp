@@ -78,6 +78,7 @@ private:
     std::shared_ptr<ASTNode> parseIdentifier();
     std::shared_ptr<ASTNode> parseCodeBlock();
     std::shared_ptr<ASTNode> parseExit();
+    std::shared_ptr<ASTNode> parseBreak();
     std::shared_ptr<ASTNode> parseWhile();
     std::shared_ptr<ASTNode> parseFor();
     declaredVars parseVariables();

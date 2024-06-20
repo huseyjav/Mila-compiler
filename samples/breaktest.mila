@@ -1,0 +1,10 @@
+program breaktest;
+
+var I : integer;
+begin
+    for I := 0 to 10 do begin
+        writeln(I);
+        if(I=5) then break;
+    end
+
+end.

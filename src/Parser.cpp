@@ -1,7 +1,7 @@
-#include <llvm-16/llvm/ADT/APInt.h>
-#include <llvm-16/llvm/IR/BasicBlock.h>
-#include <llvm-16/llvm/IR/DerivedTypes.h>
-#include <llvm-16/llvm/IR/Intrinsics.h>
+#include <llvm/ADT/APInt.h>
+#include <llvm/IR/BasicBlock.h>
+#include <llvm/IR/DerivedTypes.h>
+#include <llvm/IR/Intrinsics.h>
 
 #include <iostream>
 #include <istream>
@@ -360,6 +360,8 @@ std::shared_ptr<ASTNode> Parser::parseExpression() {
             return parseWhile();
         case Token::tok_for:
             return parseFor();
+        case Token::tok_break:
+            return parseBreak();
         default:
             return parseBinOp();
     }
@@ -384,6 +386,10 @@ std::shared_ptr<ASTNode> Parser::parseIfElse() {
                                         elseBranch);
 }
 
+std::shared_ptr<ASTNode> Parser::parseBreak(){
+    consume(Token::tok_break);
+    return std::make_shared<breakNode>();
+}
 std::shared_ptr<ASTNode> Parser::parseExit() {
     consume(Token::tok_exit);
     return std::make_shared<exitNode>();

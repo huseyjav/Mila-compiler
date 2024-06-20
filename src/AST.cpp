@@ -1,9 +1,9 @@
 #include <AST.h>
-#include <llvm-16/llvm/IR/BasicBlock.h>
-#include <llvm-16/llvm/IR/Constants.h>
-#include <llvm-16/llvm/IR/DerivedTypes.h>
-#include <llvm-16/llvm/IR/Function.h>
-#include <llvm-16/llvm/IR/Value.h>
+#include <llvm/IR/BasicBlock.h>
+#include <llvm/IR/Constants.h>
+#include <llvm/IR/DerivedTypes.h>
+#include <llvm/IR/Function.h>
+#include <llvm/IR/Value.h>
 
 #include <cstdio>
 #include <iostream>
@@ -377,6 +377,7 @@ llvm::Value* whileNode::codegen() {
     BasicBlock* bodyBlock = BasicBlock::Create(*llvmC.MilaContext);
     BasicBlock* endBlock = BasicBlock::Create(*llvmC.MilaContext);
 
+    m_End = endBlock;
     if (llvmC.MilaBuilder->GetInsertBlock()->getTerminator()) return nullptr;
 
     llvmC.MilaBuilder->CreateBr(condBlock);
@@ -436,6 +437,7 @@ llvm::Value* forNode::codegen() {
     BasicBlock* bodyBlock = BasicBlock::Create(*llvmC.MilaContext);
     BasicBlock* endBlock = BasicBlock::Create(*llvmC.MilaContext);
 
+    m_End = endBlock;
     llvmC.MilaBuilder->CreateBr(condBlock);
 
     llvmC.MilaBuilder->SetInsertPoint(condBlock);
@@ -499,3 +501,16 @@ llvm::Value* program::codegen() {
 }
 
 program* program::getParentProg() { return this; }
+
+BasicBlock* whileNode::getBreakBlock(){
+    return m_End;
+}
+BasicBlock* forNode::getBreakBlock(){
+    return m_End;
+}
+BasicBlock* ASTNode::getBreakBlock(){
+    return m_Parent->getBreakBlock();
+}
+llvm::Value* breakNode::codegen(){
+    return llvmC.MilaBuilder->CreateBr(getBreakBlock());
+}
