@@ -1,6 +1,7 @@
 # Semestral Work
 
-This is the repository that serves as a simple template for semestral work.
+This project is a part of a course called "Programming Languages and Compilers" and the provided template is used
+Implemented files can be found in src/ folder
 
 
 # Semestral work structure
