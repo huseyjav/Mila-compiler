@@ -1,20 +1,8 @@
 # Semestral Work
 
-This project is a part of a course called "Programming Languages and Compilers" and the provided template is used
-Implemented files can be found in src/ folder
-
-
-# Semestral work structure
-
-- `CMakeLists.txt` - CMake source file
-- `main.hpp` - main function definition
-- `Lexan.hpp`, `Lexan.cpp` - Lexan related sources
-- `Parser.hpp`, `Parser.cpp` - Parser related sources
-- `fce.c`  - grue for `write`, `writeln`, `read` function, it is compiled together with the program
-- `samples` - directory with samples describing syntax
-- `mila` - wrapper script for your compiler
-
-Compilation tests and correct output tests for sample files are implemented using `ctest` and defined in `CMakeLists.txt`.
+LLVM front-end for a pascal-like programming language
+Samples of the language can be found in samples folder
+The program outputs an LLVM IR which can be used for optimizations which is later turned into an executable with a script
 
 
 ## Dependencies
