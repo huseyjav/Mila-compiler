@@ -1,8 +1,8 @@
 ## Semestral Work
 
-LLVM front-end for a pascal-like programming language 
-Samples of the language can be found in samples folder 
-The program outputs an LLVM IR which can be used for optimizations which is later turned into an executable with a script 
+LLVM front-end for a pascal-like programming language  
+Samples of the language can be found in samples folder  
+The program outputs an LLVM IR which can be used for optimizations which is later turned into an executable with a script  
 
 
 ## Dependencies
